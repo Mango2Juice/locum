@@ -22,7 +22,7 @@ interface ResultCardProps {
  * @returns A Card element containing the rendered title, value, and optional description
  */
 function ResultCard(props: Readonly<ResultCardProps>) {
-  const { title, value, description } = props;
+  const { title, value, description } = props
   return (
     <Card className='text-center bg-secondary/30'>
       <CardHeader className='p-3 pb-2'>
@@ -33,7 +33,7 @@ function ResultCard(props: Readonly<ResultCardProps>) {
         {description && <p className='text-xs text-muted-foreground'>{description}</p>}
       </CardContent>
     </Card>
-  );
+  )
 }
 
 /**
@@ -46,25 +46,25 @@ function ResultCard(props: Readonly<ResultCardProps>) {
  * @returns A React element containing the alert for recognized `source` values, `null` otherwise.
  */
 function BestEstimateAlert(props: Readonly<{ source: string; discrepancyDays: number }>) {
-  const { source, discrepancyDays } = props;
-  let title = '';
-  let description = '';
+  const { source, discrepancyDays } = props
+  let title = ''
+  let description = ''
 
   switch (source) {
     case 'LMP':
-      title = 'EDD based on LMP';
-      description = 'The due date from LMP is used as no ultrasound data was provided.';
-      break;
+      title = 'EDD based on LMP'
+      description = 'The due date from LMP is used as no ultrasound data was provided.'
+      break
     case 'LMP_ADJUSTED':
-      title = 'EDD based on LMP';
-      description = `The due date from LMP is used as the discrepancy with ultrasound is small (${discrepancyDays} days).`;
-      break;
+      title = 'EDD based on LMP'
+      description = `The due date from LMP is used as the discrepancy with ultrasound is small (${discrepancyDays} days).`
+      break
     case 'Ultrasound':
-      title = 'EDD based on Ultrasound';
-      description = `The EDD is redated to the ultrasound estimate due to a significant discrepancy of ${discrepancyDays} days. This is the most accurate estimate.`;
-      break;
+      title = 'EDD based on Ultrasound'
+      description = `The EDD is redated to the ultrasound estimate due to a significant discrepancy of ${discrepancyDays} days. This is the most accurate estimate.`
+      break
     default:
-      return null;
+      return null
   }
 
   return (
@@ -73,7 +73,7 @@ function BestEstimateAlert(props: Readonly<{ source: string; discrepancyDays: nu
       <AlertTitle>{title}</AlertTitle>
       <AlertDescription>{description}</AlertDescription>
     </Alert>
-  );
+  )
 }
 
 interface PregnancyResultsProps {

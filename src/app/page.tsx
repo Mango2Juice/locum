@@ -51,7 +51,7 @@ export default async function HomePage({ searchParams }: PageProps) {
   const params = await searchParams
 
   const parsedWeight = Number.parseFloat(params?.weight ?? '')
-  const defaultWeight = !Number.isNaN(parsedWeight) && parsedWeight > 0 ? parsedWeight : getWeightForAge(72) // Default to 6 years old
+  const defaultWeight = (!Number.isNaN(parsedWeight) && parsedWeight > 0 ? parsedWeight : getWeightForAge(72)) ?? 0 // Default to 6 years old, fallback 0 if lookup fails
 
   const initialComplaintFilter = params?.complaint || undefined // Convert empty string to undefined
 

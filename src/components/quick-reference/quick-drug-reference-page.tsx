@@ -27,8 +27,8 @@ import { ComplaintFilterBar, DrugReferenceGrid, WeightInputSection } from './'
 import { AgeInputSection } from './age-input-section'
 
 interface QuickDrugReferencePageProps {
-  defaultWeight?: number
-  initialComplaintFilter?: string
+  defaultWeight?: number | undefined
+  initialComplaintFilter?: string | undefined
   medications: QuickReferenceMedication[]
   categories: QuickReferenceComplaintCategory[]
 }

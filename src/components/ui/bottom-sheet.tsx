@@ -2,7 +2,7 @@
 'use client'
 
 import { X } from 'lucide-react'
-import { type ComponentPropsWithoutRef, type ElementRef, forwardRef, useEffect, useId, useRef, useState } from 'react'
+import { type ComponentPropsWithoutRef, type ComponentRef, forwardRef, useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -15,7 +15,7 @@ interface BottomSheetProps extends ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode
 }
 
-export const BottomSheet = forwardRef<ElementRef<'div'>, BottomSheetProps>(
+export const BottomSheet = forwardRef<ComponentRef<'div'>, BottomSheetProps>(
   ({ open, onOpenChange, title, description, children, className, ...props }, ref) => {
     const [mounted, setMounted] = useState(false)
     const internalSheetRef = useRef<HTMLDivElement | null>(null)

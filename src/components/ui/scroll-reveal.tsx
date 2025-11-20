@@ -4,13 +4,13 @@
  */
 'use client'
 
-import { Children, type ReactNode, useId } from 'react'
+import React, { Children, type ReactNode } from 'react'
 import { useScrollReveal } from '@/hooks/useScrollOptimization'
 import { cn } from '@/lib/utils'
 
 interface ScrollRevealProps {
   children: ReactNode
-  className?: string
+  className?: string | undefined
   animation?: 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'scale'
   delay?: number
   threshold?: number
@@ -66,8 +66,8 @@ export function ScrollReveal({
 
 interface ScrollRevealListProps {
   children: ReactNode
-  className?: string
-  itemClassName?: string
+  className?: string | undefined
+  itemClassName?: string | undefined
   animation?: 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'scale'
   staggerDelay?: number
   threshold?: number
@@ -83,14 +83,16 @@ export function ScrollRevealList({
   threshold = 0.1,
   triggerOnce = true,
 }: ScrollRevealListProps) {
-  const componentId = useId()
+  // `useId` is not available in all React type definitions across environments.
+  // Use a stable `useRef`-generated id as a compatible fallback for keys.
+  const componentIdRef = React.useRef(`scroll-reveal-${Math.random().toString(36).slice(2, 9)}`)
   const childArray = Children.toArray(children)
 
   return (
     <div className={className}>
       {childArray.map((child, index) => (
         <ScrollReveal
-          key={`${componentId}-reveal-${index}`}
+          key={`${componentIdRef.current}-reveal-${index}`}
           animation={animation}
           delay={index * staggerDelay}
           threshold={threshold}

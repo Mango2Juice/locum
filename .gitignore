@@ -42,5 +42,7 @@ next-env.d.ts
 /test-results/
 
 
-# Snyk Security Extension - AI Rules (auto-generated)
+# AI
 .github\instructions\snyk_rules.instructions.md
+/.codacy/
+/.qodo/

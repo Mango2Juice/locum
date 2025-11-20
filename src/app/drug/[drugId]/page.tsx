@@ -142,14 +142,14 @@ export default async function DrugPage({ params }: Readonly<DrugPageProps>) {
     TriangleAlert,
   }
 
-  const aliasesRaw = frontmatter?.aliases;
-  let aliases: string | undefined;
+  const aliasesRaw = frontmatter?.aliases
+  let aliases: string | undefined
   if (Array.isArray(aliasesRaw)) {
-    aliases = aliasesRaw.join(', ');
+    aliases = aliasesRaw.join(', ')
   } else if (typeof aliasesRaw === 'string') {
-    aliases = aliasesRaw;
+    aliases = aliasesRaw
   } else {
-    aliases = undefined;
+    aliases = undefined
   }
 
   return (

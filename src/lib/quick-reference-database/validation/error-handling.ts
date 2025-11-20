@@ -12,13 +12,12 @@ import type {
  */
 
 export class ValidationErrorHandler {
-  private static instance: ValidationErrorHandler
+  // biome-ignore lint/correctness/noUnusedPrivateClassMembers: used by getInstance() as singleton
+  private static instance: ValidationErrorHandler | undefined = undefined
   private errorLog: Array<{ context: ErrorContext; error: Error; message: string }> = []
 
   static getInstance(): ValidationErrorHandler {
-    if (!ValidationErrorHandler.instance) {
-      ValidationErrorHandler.instance = new ValidationErrorHandler()
-    }
+    ValidationErrorHandler.instance ??= new ValidationErrorHandler()
     return ValidationErrorHandler.instance
   }
 
@@ -28,13 +27,16 @@ export class ValidationErrorHandler {
   handleValidationError(
     error: Error | ValidationResult,
     context: ErrorContext,
-    options: ErrorRecoveryOptions = {
-      fallbackToDefaults: true,
-      skipInvalidItems: true,
-      logErrors: true,
-      showUserFriendlyMessages: true,
-    },
+    options?: ErrorRecoveryOptions,
   ): { success: boolean; message: string; recoveredData?: unknown } {
+    // Destructure with individual defaults so partial objects don't override defaults
+    const {
+      fallbackToDefaults = true,
+      skipInvalidItems = true,
+      logErrors = true,
+      showUserFriendlyMessages = true,
+    } = options ?? {}
+
     let errorMessage = ''
     let userMessage = ''
 
@@ -47,16 +49,21 @@ export class ValidationErrorHandler {
     }
 
     // Log error if enabled
-    if (options.logErrors) {
+    if (logErrors) {
       this.logError(context, error instanceof Error ? error : new Error(errorMessage), errorMessage)
     }
 
-    // Attempt recovery
-    const recoveryResult = this.attemptRecovery(error, context, options)
+    // Attempt recovery using the resolved option values
+    const recoveryResult = this.attemptRecovery(error, context, {
+      fallbackToDefaults,
+      skipInvalidItems,
+      logErrors,
+      showUserFriendlyMessages,
+    })
 
     return {
       success: recoveryResult.success,
-      message: options.showUserFriendlyMessages ? userMessage : errorMessage,
+      message: showUserFriendlyMessages ? userMessage : errorMessage,
       recoveredData: recoveryResult.data,
     }
   }
@@ -65,7 +72,7 @@ export class ValidationErrorHandler {
    * Create user-friendly error messages
    */
   private createUserFriendlyMessage(error: Error, context: ErrorContext): string {
-    const operation = context.operation.toLowerCase().replace(/_/g, ' ')
+    const operation = context.operation.toLowerCase().replaceAll('_', ' ')
 
     if (error.message.includes('JSON')) {
       return 'There was a problem reading the medication data file. Please check the file format and try again.'

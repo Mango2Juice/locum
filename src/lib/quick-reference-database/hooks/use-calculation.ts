@@ -36,7 +36,7 @@ export function useCalculation(medications: QuickReferenceMedication[]) {
     for (const key of Object.keys(cache)) {
       const entry = cache[key]
       if (entry && now - entry.timestamp > CACHE_DURATION) {
-      delete cache[key]
+        delete cache[key]
       }
     }
   }

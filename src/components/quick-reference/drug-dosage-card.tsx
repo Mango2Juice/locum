@@ -4,8 +4,8 @@
 import { AlertTriangle, Heart, History, Share2, Trash2 } from 'lucide-react'
 import type { KeyboardEvent } from 'react'
 import { useCallback, useState } from 'react'
-import { ContextMenuOverlay } from '@/components/ui/context-menu-overlay'
 import { Badge } from '@/components/ui/badge'
+import { ContextMenuOverlay } from '@/components/ui/context-menu-overlay'
 import { SwipeableCard } from '@/components/ui/swipeable-card'
 import { useDevice } from '@/hooks/use-device'
 import { useLongPress } from '@/hooks/use-long-press'
@@ -21,14 +21,14 @@ interface DrugDosageCardProps {
   drug: QuickReferenceMedication
   calculationResult: QuickReferenceCalculation | null
   categories: readonly QuickReferenceComplaintCategory[]
-  onClick?: () => void
-  onFavorite?: () => void
-  onDelete?: () => void
-  onHistory?: () => void
-  onShare?: () => void
-  enableSwipe?: boolean
-  enableLongPress?: boolean
-  className?: string
+  onClick?: (() => void) | undefined
+  onFavorite?: (() => void) | undefined
+  onDelete?: (() => void) | undefined
+  onHistory?: (() => void) | undefined
+  onShare?: (() => void) | undefined
+  enableSwipe?: boolean | undefined
+  enableLongPress?: boolean | undefined
+  className?: string | undefined
 }
 
 // Color mapping for medication types based on complaint tags

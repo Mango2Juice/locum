@@ -50,7 +50,7 @@ interface SwipeCallbacks {
  * @lintignore Make exceptions for unused or duplicate exports - used by knip
  */
 export function useSwipeGesture(
-  elementRef: React.RefObject<HTMLElement>,
+  elementRef: React.RefObject<HTMLElement | null>,
   callbacks: SwipeCallbacks,
   options: SwipeGestureOptions = {},
 ) {

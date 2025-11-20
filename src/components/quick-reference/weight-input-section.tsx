@@ -21,7 +21,7 @@ interface WeightInputSectionProps {
  * @returns The rendered weight input section as JSX
  */
 export function WeightInputSection({ disabled }: Readonly<WeightInputSectionProps>) {
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>()
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const { isMobile } = useDevice()
   const { announceStatus } = useScreenReader()
 

@@ -2,9 +2,9 @@
 'use client'
 
 import { AlertTriangle, Check, RefreshCw } from 'lucide-react'
-
+import type React from 'react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
@@ -73,7 +73,7 @@ function ResultCard({
     alertVariant = 'default'
   }
 
-  let alertIcon: JSX.Element
+  let alertIcon: React.ReactNode
   if (score >= 1) {
     alertIcon = <AlertTriangle className='w-4 h-4' />
   } else {
@@ -163,7 +163,11 @@ export default function CentorScorePage() {
               <Button type='submit' className='w-full'>
                 Calculate Score
               </Button>
-              <Button type='button' variant='outline' className='w-full' onClick={handleReset}>
+              <Button
+                type='button'
+                className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}
+                onClick={handleReset}
+              >
                 <RefreshCw className='w-4 h-4 mr-2' />
                 Reset
               </Button>

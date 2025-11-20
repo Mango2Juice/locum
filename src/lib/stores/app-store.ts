@@ -7,9 +7,9 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 /**
  * AppState defines the shape of the global app store.
  * Currently empty, but can be extended with properties as needed.
- * Keeping this interface allows for future type-safe additions and documentation.
+ * Use `Record<string, never>` to express an object with no known properties.
  */
-type AppState = {}
+type AppState = Record<string, never>
 
 export const useAppStore = create<AppState>()(
   persist(

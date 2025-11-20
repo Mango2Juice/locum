@@ -25,7 +25,7 @@ export function useFilteringAndSorting(
   medications: QuickReferenceMedication[],
   categories: QuickReferenceComplaintCategory[],
 ) {
-  const getFilteredMedications = (categoryId?: string, audience?: 'paediatric' | 'adult') => {
+  const getFilteredMedications = (categoryId?: string | undefined, audience?: 'paediatric' | 'adult' | undefined) => {
     return getFiltered(medications, {
       categoryId,
       enabledOnly: true,

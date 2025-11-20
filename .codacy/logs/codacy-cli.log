@@ -1,4 +1,282 @@
-2025-11-17T19:01:07+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
-2025-11-17T19:01:08+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 init --provider gh --organization Mango2Juice --repository locum2 --api-token ***] args=[] command=init
-2025-11-17T19:17:04+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
-2025-11-17T19:17:04+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 init --provider gh --organization Mango2Juice --repository locum2 --api-token ***] args=[] command=init
+2025-11-20T10:33:33+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:33:33+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=init full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 init --provider gh --organization Mango2Juice --repository drlocum --api-token ***] args=[]
+2025-11-20T10:33:35+08:00 [INFO] (codacy-cli-v2/tools/getTools.go:49) Supported tools: supported_tools=[map[name:revive uuid:bd81d1f4-1406-402d-9181-1274ee09f1aa] map[name:pmd uuid:ed7e8287-707d-485a-a0cb-e211004432c2] map[name:trivy uuid:2fd7fbe0-33f9-4ab3-ab73-e9b62404e2cb] map[name:dartanalyzer uuid:d203d615-6cf1-41f9-be5f-e2f660f7850f] map[name:eslint uuid:2a30ab97-477f-4769-8b88-af596ce7a94c] map[name:eslint uuid:f8b29663-2cb2-498d-b923-a10c6a8c05cd] map[name:pmd uuid:9ed24812-b6ee-4a58-9004-0ed183c45b8f] map[name:pylint uuid:31677b6d-4ae0-4f56-8041-606a8d7a8e61] map[name:lizard uuid:76348462-84b3-409a-90d3-955e90abfb87] map[name:semgrep uuid:6792c561-236d-41b7-ba5e-9d6bee0d548b]]
+2025-11-20T10:33:41+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:33:41+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/AppData/Roaming/Code/User/settings.json --format sarif] args=[/mnt/c/Users/burst/AppData/Roaming/Code/User/settings.json]
+2025-11-20T10:33:41+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:114) Installing download-based tool downloadURL=https://github.com/aquasecurity/trivy/releases/download/v0.66.0/trivy_0.66.0_Linux-64bit.tar.gz tool=trivy version=0.66.0
+2025-11-20T10:33:41+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:267) Downloading tool version=0.66.0 downloadURL=https://github.com/aquasecurity/trivy/releases/download/v0.66.0/trivy_0.66.0_Linux-64bit.tar.gz downloadPath=/home/surfacepro/.cache/codacy/tools/trivy_0.66.0_Linux-64bit.tar.gz tool=trivy
+2025-11-20T10:33:41+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:15) Attempting to download from URL url=https://github.com/aquasecurity/trivy/releases/download/v0.66.0/trivy_0.66.0_Linux-64bit.tar.gz
+2025-11-20T10:33:41+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:21) Target filename determined fileName=trivy_0.66.0_Linux-64bit.tar.gz
+2025-11-20T10:33:41+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:27) Destination path set destPath=/home/surfacepro/.cache/codacy/tools/trivy_0.66.0_Linux-64bit.tar.gz
+2025-11-20T10:33:41+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:47) Making HTTP GET request url=https://github.com/aquasecurity/trivy/releases/download/v0.66.0/trivy_0.66.0_Linux-64bit.tar.gz
+2025-11-20T10:33:42+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:69) Downloading file content
+2025-11-20T10:34:25+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:74) Downloaded file successfully bytes=45982203
+2025-11-20T10:34:25+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:301) Extracting tool extractDirectory=/home/surfacepro/.cache/codacy/tools/trivy@0.66.0 tool=trivy version=0.66.0 fileName=trivy_0.66.0_Linux-64bit.tar.gz
+2025-11-20T10:34:27+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:34:27+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=install full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 install] args=[]
+2025-11-20T10:34:28+08:00 [INFO] (codacy-cli-v2/cmd/install.go:78) Starting installation process
+2025-11-20T10:34:28+08:00 [INFO] (codacy-cli-v2/cmd/install.go:107) Runtime scheduled for installation runtime=node version=22.2.0
+2025-11-20T10:34:28+08:00 [INFO] (codacy-cli-v2/cmd/install.go:107) Runtime scheduled for installation version=3.11.11 runtime=python
+2025-11-20T10:34:28+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation version=1.78.0 tool=semgrep
+2025-11-20T10:34:28+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation tool=eslint version=8.57.0
+2025-11-20T10:34:28+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation tool=lizard version=1.17.31
+2025-11-20T10:34:28+08:00 [INFO] (codacy-cli-v2/cmd/install.go:157) Installing runtime runtime=node version=22.2.0
+2025-11-20T10:34:28+08:00 [DEBUG] (codacy-cli-v2/config/runtimes-installer.go:94) Downloading runtime version=22.2.0 downloadURL=https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-x64.tar.gz downloadPath=/home/surfacepro/.cache/codacy/runtimes/node-v22.2.0-linux-x64.tar.gz runtime=node
+2025-11-20T10:34:28+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:15) Attempting to download from URL url=https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-x64.tar.gz
+2025-11-20T10:34:28+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:21) Target filename determined fileName=node-v22.2.0-linux-x64.tar.gz
+2025-11-20T10:34:28+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:27) Destination path set destPath=/home/surfacepro/.cache/codacy/runtimes/node-v22.2.0-linux-x64.tar.gz
+2025-11-20T10:34:28+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:47) Making HTTP GET request url=https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-x64.tar.gz
+2025-11-20T10:34:31+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:69) Downloading file content
+2025-11-20T10:34:31+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:326) Tool extraction completed tool=trivy version=0.66.0
+2025-11-20T10:34:31+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool toolConfigPath=.codacy/tools-configs/trivy.yaml tool=trivy
+2025-11-20T10:35:23+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:74) Downloaded file successfully bytes=50687648
+2025-11-20T10:35:23+08:00 [DEBUG] (codacy-cli-v2/config/runtimes-installer.go:122) Extracting runtime version=22.2.0 fileName=node-v22.2.0-linux-x64.tar.gz extractDirectory=/home/surfacepro/.cache/codacy/runtimes runtime=node
+2025-11-20T10:35:40+08:00 [DEBUG] (codacy-cli-v2/config/runtimes-installer.go:151) Runtime extraction completed runtime=node version=22.2.0
+2025-11-20T10:35:40+08:00 [INFO] (codacy-cli-v2/cmd/install.go:173) Successfully installed runtime runtime=node version=22.2.0
+2025-11-20T10:35:40+08:00 [INFO] (codacy-cli-v2/cmd/install.go:157) Installing runtime version=3.11.11 runtime=python
+2025-11-20T10:35:40+08:00 [DEBUG] (codacy-cli-v2/config/runtimes-installer.go:94) Downloading runtime version=3.11.11 downloadURL=https://github.com/astral-sh/python-build-standalone/releases/download/20250317/cpython-3.11.11+20250317-x86_64-unknown-linux-gnu-install_only.tar.gz downloadPath=/home/surfacepro/.cache/codacy/runtimes/cpython-3.11.11+20250317-x86_64-unknown-linux-gnu-install_only.tar.gz runtime=python
+2025-11-20T10:35:40+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:15) Attempting to download from URL url=https://github.com/astral-sh/python-build-standalone/releases/download/20250317/cpython-3.11.11+20250317-x86_64-unknown-linux-gnu-install_only.tar.gz
+2025-11-20T10:35:40+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:21) Target filename determined fileName=cpython-3.11.11+20250317-x86_64-unknown-linux-gnu-install_only.tar.gz
+2025-11-20T10:35:40+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:27) Destination path set destPath=/home/surfacepro/.cache/codacy/runtimes/cpython-3.11.11+20250317-x86_64-unknown-linux-gnu-install_only.tar.gz
+2025-11-20T10:35:40+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:47) Making HTTP GET request url=https://github.com/astral-sh/python-build-standalone/releases/download/20250317/cpython-3.11.11+20250317-x86_64-unknown-linux-gnu-install_only.tar.gz
+2025-11-20T10:35:53+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:69) Downloading file content
+2025-11-20T10:36:36+08:00 [DEBUG] (codacy-cli-v2/utils/download.go:74) Downloaded file successfully bytes=30030843
+2025-11-20T10:36:36+08:00 [DEBUG] (codacy-cli-v2/config/runtimes-installer.go:122) Extracting runtime extractDirectory=/home/surfacepro/.cache/codacy/runtimes runtime=python version=3.11.11 fileName=cpython-3.11.11+20250317-x86_64-unknown-linux-gnu-install_only.tar.gz
+2025-11-20T10:36:42+08:00 [DEBUG] (codacy-cli-v2/config/runtimes-installer.go:151) Runtime extraction completed runtime=python version=3.11.11
+2025-11-20T10:36:42+08:00 [INFO] (codacy-cli-v2/cmd/install.go:173) Successfully installed runtime runtime=python version=3.11.11
+2025-11-20T10:36:42+08:00 [INFO] (codacy-cli-v2/cmd/install.go:185) Installing tool tool=semgrep version=1.78.0
+2025-11-20T10:36:42+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:125) Installing Python tool tool=semgrep version=1.78.0
+2025-11-20T10:36:42+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:334) Starting Python tool installation tool=semgrep version=1.78.0
+2025-11-20T10:36:42+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:361) Creating Python virtual environment version=1.78.0 venvDir=/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv tool=semgrep
+2025-11-20T10:36:52+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:36:53+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command args=[] command=init full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 init]
+2025-11-20T10:37:09+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:375) Installing Python package tool=semgrep version=1.78.0 pipPath=/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/bin/pip
+2025-11-20T10:37:12+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:37:12+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=init full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 init --provider gh --organization Mango2Juice --repository drlocum --api-token ***] args=[]
+2025-11-20T10:37:13+08:00 [INFO] (codacy-cli-v2/tools/getTools.go:49) Supported tools: supported_tools=[map[name:eslint uuid:2a30ab97-477f-4769-8b88-af596ce7a94c] map[name:eslint uuid:f8b29663-2cb2-498d-b923-a10c6a8c05cd] map[name:pmd uuid:9ed24812-b6ee-4a58-9004-0ed183c45b8f] map[name:pylint uuid:31677b6d-4ae0-4f56-8041-606a8d7a8e61] map[name:lizard uuid:76348462-84b3-409a-90d3-955e90abfb87] map[name:semgrep uuid:6792c561-236d-41b7-ba5e-9d6bee0d548b] map[name:pmd uuid:ed7e8287-707d-485a-a0cb-e211004432c2] map[name:trivy uuid:2fd7fbe0-33f9-4ab3-ab73-e9b62404e2cb] map[name:dartanalyzer uuid:d203d615-6cf1-41f9-be5f-e2f660f7850f] map[name:revive uuid:bd81d1f4-1406-402d-9181-1274ee09f1aa]]
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=install full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 install] args=[]
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:78) Starting installation process
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation tool=semgrep version=1.78.0
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation tool=eslint version=8.57.0
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation version=1.17.31 tool=lizard
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:185) Installing tool version=1.78.0 tool=semgrep
+2025-11-20T10:37:38+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:125) Installing Python tool version=1.78.0 tool=semgrep
+2025-11-20T10:37:38+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:334) Starting Python tool installation version=1.78.0 tool=semgrep
+2025-11-20T10:37:38+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:361) Creating Python virtual environment version=1.78.0 venvDir=/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv tool=semgrep
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command args=[] command=install full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 install]
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:78) Starting installation process
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation version=1.78.0 tool=semgrep
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation tool=eslint version=8.57.0
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:116) Tool scheduled for installation tool=lizard version=1.17.31
+2025-11-20T10:37:38+08:00 [INFO] (codacy-cli-v2/cmd/install.go:185) Installing tool tool=eslint version=8.57.0
+2025-11-20T10:37:38+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:134) Installing runtime-based tool runtime=node tool=eslint version=8.57.0
+2025-11-20T10:37:38+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:203) Installing tool packageManagerBin=/home/surfacepro/.cache/codacy/runtimes/node-v22.2.0-linux-x64/bin/npm command=install --prefix /home/surfacepro/.cache/codacy/tools/eslint@8.57.0 eslint@8.57.0 @microsoft/eslint-formatter-sarif tool=eslint version=8.57.0 packageManager=npm
+2025-11-20T10:37:38+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:233) Setting PATH environment for ESLint installation newPath=/home/surfacepro/.cache/codacy/runtimes/node-v22.2.0-linux-x64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/PowerShell/7:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/burst/AppData/Local/nvm:/mnt/c/nvm4w/nodejs:/mnt/c/Program Files/Cloudflare/Cloudflare WARP/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Users/burst/AppData/Local/pnpm:/mnt/c/Users/burst/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/burst/AppData/Local/JetBrains/Toolbox/scripts:/mnt/c/Users/burst/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/burst/AppData/Local/nvm:/mnt/c/nvm4w/nodejs:/mnt/c/Users/burst/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/burst/AppData/Local/GitHubDesktop/app-3.5.2/resources/app/git/mingw64/bin:/mnt/c/Users/burst/AppData/Local/Programs/Kiro/bin:/mnt/c/Users/burst/AppData/Local/Programs/Microsoft VS Code Insiders/bin:/mnt/c/Users/burst/AppData/Local/GitHubDesktop/app-3.5.4/resources/app/git/cmd:/mnt/c/Program Files/Docker/Docker/resources:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/burst/AppData/Local/Programs/Windsurf/bin:/snap/bin nodeDir=/home/surfacepro/.cache/codacy/runtimes/node-v22.2.0-linux-x64/bin currentPath=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/PowerShell/7:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/burst/AppData/Local/nvm:/mnt/c/nvm4w/nodejs:/mnt/c/Program Files/Cloudflare/Cloudflare WARP/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Users/burst/AppData/Local/pnpm:/mnt/c/Users/burst/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/burst/AppData/Local/JetBrains/Toolbox/scripts:/mnt/c/Users/burst/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/burst/AppData/Local/nvm:/mnt/c/nvm4w/nodejs:/mnt/c/Users/burst/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/burst/AppData/Local/GitHubDesktop/app-3.5.2/resources/app/git/mingw64/bin:/mnt/c/Users/burst/AppData/Local/Programs/Kiro/bin:/mnt/c/Users/burst/AppData/Local/Programs/Microsoft VS Code Insiders/bin:/mnt/c/Users/burst/AppData/Local/GitHubDesktop/app-3.5.4/resources/app/git/cmd:/mnt/c/Program Files/Docker/Docker/resources:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/burst/AppData/Local/Programs/Windsurf/bin:/snap/bin
+2025-11-20T10:37:38+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:242) Running command command=/home/surfacepro/.cache/codacy/runtimes/node-v22.2.0-linux-x64/bin/npm install --prefix /home/surfacepro/.cache/codacy/tools/eslint@8.57.0 eslint@8.57.0 @microsoft/eslint-formatter-sarif
+2025-11-20T10:37:54+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:375) Installing Python package pipPath=/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/bin/pip tool=semgrep version=1.78.0
+2025-11-20T10:38:15+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:250) Tool installation completed tool=eslint version=8.57.0
+2025-11-20T10:38:15+08:00 [INFO] (codacy-cli-v2/cmd/install.go:201) Successfully installed tool version=8.57.0 tool=eslint
+2025-11-20T10:38:15+08:00 [INFO] (codacy-cli-v2/cmd/install.go:185) Installing tool tool=lizard version=1.17.31
+2025-11-20T10:38:15+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:125) Installing Python tool version=1.17.31 tool=lizard
+2025-11-20T10:38:15+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:334) Starting Python tool installation tool=lizard version=1.17.31
+2025-11-20T10:38:15+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:361) Creating Python virtual environment version=1.17.31 venvDir=/home/surfacepro/.cache/codacy/tools/lizard@1.17.31/venv tool=lizard
+2025-11-20T10:38:40+08:00 [ERROR] (codacy-cli-v2/cmd/install.go:191) Failed to install tool tool=semgrep version=1.78.0 error=failed to install tool: Collecting semgrep==1.78.0
+  Downloading semgrep-1.78.0-cp38.cp39.cp310.cp311.py37.py38.py39.py310.py311-none-any.whl.metadata (19 kB)
+Collecting attrs>=21.3 (from semgrep==1.78.0)
+  Downloading attrs-25.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting boltons~=21.0 (from semgrep==1.78.0)
+  Downloading boltons-21.0.0-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting click-option-group~=0.5 (from semgrep==1.78.0)
+  Downloading click_option_group-0.5.9-py3-none-any.whl.metadata (5.8 kB)
+Collecting click~=8.1 (from semgrep==1.78.0)
+  Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting colorama~=0.4.0 (from semgrep==1.78.0)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting defusedxml~=0.7.1 (from semgrep==1.78.0)
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting exceptiongroup~=1.2.0 (from semgrep==1.78.0)
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting glom~=22.1 (from semgrep==1.78.0)
+  Downloading glom-22.1.0-py2.py3-none-any.whl.metadata (4.9 kB)
+Collecting jsonschema~=4.6 (from semgrep==1.78.0)
+  Downloading jsonschema-4.25.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting packaging>=21.0 (from semgrep==1.78.0)
+  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting peewee~=3.14 (from semgrep==1.78.0)
+  Downloading peewee-3.18.3.tar.gz (3.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 1.2 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting requests~=2.22 (from semgrep==1.78.0)
+  Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+Collecting rich>=12.6.0 (from semgrep==1.78.0)
+  Downloading rich-14.2.0-py3-none-any.whl.metadata (18 kB)
+Collecting ruamel.yaml<0.18,>=0.16.0 (from semgrep==1.78.0)
+  Downloading ruamel.yaml-0.17.40-py3-none-any.whl.metadata (19 kB)
+Collecting tomli~=2.0.1 (from semgrep==1.78.0)
+  Downloading tomli-2.0.2-py3-none-any.whl.metadata (10.0 kB)
+Collecting typing-extensions~=4.2 (from semgrep==1.78.0)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting urllib3~=2.0 (from semgrep==1.78.0)
+  Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting wcmatch~=8.3 (from semgrep==1.78.0)
+  Downloading wcmatch-8.5.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting face>=20.1.0 (from glom~=22.1->semgrep==1.78.0)
+  Downloading face-24.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema~=4.6->semgrep==1.78.0)
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema~=4.6->semgrep==1.78.0)
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.7.1 (from jsonschema~=4.6->semgrep==1.78.0)
+  Downloading rpds_py-0.29.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting charset_normalizer<4,>=2 (from requests~=2.22->semgrep==1.78.0)
+  Downloading charset_normalizer-3.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+Collecting idna<4,>=2.5 (from requests~=2.22->semgrep==1.78.0)
+  Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+Collecting certifi>=2017.4.17 (from requests~=2.22->semgrep==1.78.0)
+  Downloading certifi-2025.11.12-py3-none-any.whl.metadata (2.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=12.6.0->semgrep==1.78.0)
+  Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=12.6.0->semgrep==1.78.0)
+  Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting ruamel.yaml.clib>=0.2.7 (from ruamel.yaml<0.18,>=0.16.0->semgrep==1.78.0)
+  Downloading ruamel_yaml_clib-0.2.15-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+Collecting bracex>=2.1.1 (from wcmatch~=8.3->semgrep==1.78.0)
+  Downloading bracex-2.6-py3-none-any.whl.metadata (3.6 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=12.6.0->semgrep==1.78.0)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading semgrep-1.78.0-cp38.cp39.cp310.cp311.py37.py38.py39.py310.py311-none-any.whl (27.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━           21.0/27.5 MB 1.4 MB/s eta 0:00:05
+ERROR: Exception:
+Traceback (most recent call last):
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 438, in _error_catcher
+    yield
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 561, in read
+    data = self._fp_read(amt) if not fp_closed else b""
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 527, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_vendor/cachecontrol/filewrapper.py", line 98, in read
+    data: bytes = self.__fp.read(amt)
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/runtimes/python/lib/python3.11/http/client.py", line 473, in read
+    s = self.fp.read(amt)
+        ^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/runtimes/python/lib/python3.11/socket.py", line 718, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/runtimes/python/lib/python3.11/ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/runtimes/python/lib/python3.11/ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/cli/base_command.py", line 180, in exc_logging_wrapper
+    status = run_func(*args)
+             ^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/cli/req_command.py", line 245, in wrapper
+    return func(self, options, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/commands/install.py", line 377, in run
+    requirement_set = resolver.resolve(
+                      ^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 179, in resolve
+    self.factory.preparer.prepare_linked_requirements_more(reqs)
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 552, in prepare_linked_requirements_more
+    self._complete_partial_requirements(
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/operations/prepare.py", line 467, in _complete_partial_requirements
+    for link, (filepath, _) in batch_download:
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/network/download.py", line 183, in __call__
+    for chunk in chunks:
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/cli/progress_bars.py", line 53, in _rich_progress_bar
+    for chunk in iterable:
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_internal/network/utils.py", line 63, in response_chunks
+    for chunk in response.raw.stream(
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 622, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 560, in read
+    with self._error_catcher():
+  File "/home/surfacepro/.cache/codacy/runtimes/python/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/lib/python3.11/site-packages/pip/_vendor/urllib3/response.py", line 443, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.")
+pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: /home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/bin/python3 -m pip install --upgrade pip
+
+Error: exit status 2
+2025-11-20T10:38:40+08:00 [WARNING] (codacy-cli-v2/cmd/install.go:235) Installation completed with some failures
+2025-11-20T10:38:47+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:375) Installing Python package pipPath=/home/surfacepro/.cache/codacy/tools/lizard@1.17.31/venv/bin/pip tool=lizard version=1.17.31
+2025-11-20T10:39:20+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:387) Python tool installation completed tool=lizard version=1.17.31
+2025-11-20T10:39:20+08:00 [INFO] (codacy-cli-v2/cmd/install.go:201) Successfully installed tool tool=lizard version=1.17.31
+2025-11-20T10:39:20+08:00 [INFO] (codacy-cli-v2/cmd/install.go:185) Installing tool tool=semgrep version=1.78.0
+2025-11-20T10:39:20+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:125) Installing Python tool tool=semgrep version=1.78.0
+2025-11-20T10:39:20+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:334) Starting Python tool installation tool=semgrep version=1.78.0
+2025-11-20T10:39:20+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:361) Creating Python virtual environment venvDir=/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv tool=semgrep version=1.78.0
+2025-11-20T10:39:27+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:375) Installing Python package version=1.78.0 pipPath=/home/surfacepro/.cache/codacy/tools/semgrep@1.78.0/venv/bin/pip tool=semgrep
+2025-11-20T10:39:40+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:387) Python tool installation completed tool=semgrep version=1.78.0
+2025-11-20T10:39:40+08:00 [INFO] (codacy-cli-v2/cmd/install.go:201) Successfully installed tool tool=semgrep version=1.78.0
+2025-11-20T10:39:40+08:00 [INFO] (codacy-cli-v2/cmd/install.go:240) Installation completed successfully
+2025-11-20T10:39:40+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:39:41+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/cli-config.yaml] command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/cli-config.yaml --format sarif]
+2025-11-20T10:39:41+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool toolConfigPath=.codacy/tools-configs/semgrep.yaml tool=semgrep
+2025-11-20T10:39:41+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T10:39:44+08:00 [DEBUG] (codacy-cli-v2/config/tools-installer.go:387) Python tool installation completed tool=semgrep version=1.78.0
+2025-11-20T10:39:44+08:00 [INFO] (codacy-cli-v2/cmd/install.go:201) Successfully installed tool tool=semgrep version=1.78.0
+2025-11-20T10:39:44+08:00 [INFO] (codacy-cli-v2/cmd/install.go:240) Installation completed successfully
+2025-11-20T10:39:46+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:39:46+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.trunk/tools/trivy.bat --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.trunk/tools/trivy.bat] command=analyze
+2025-11-20T10:42:34+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:42:35+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/eslint.config.mjs --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/eslint.config.mjs]
+2025-11-20T10:42:35+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=lizard toolConfigPath=.codacy/tools-configs/lizard.yaml
+2025-11-20T10:42:35+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=semgrep toolConfigPath=.codacy/tools-configs/semgrep.yaml
+2025-11-20T10:43:00+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:43:00+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze] args=[] command=analyze
+2025-11-20T10:43:00+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T10:44:33+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T10:44:40+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=eslint toolConfigPath=.codacy/tools-configs/eslint.config.mjs
+2025-11-20T10:44:51+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:44:51+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/trivy.yaml --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/trivy.yaml]
+2025-11-20T10:44:51+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool toolConfigPath=.codacy/tools-configs/semgrep.yaml tool=semgrep
+2025-11-20T10:45:03+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:45:03+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=discover full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 config discover c:/Users/burst/Documents/GitHub/locum2/.trunk/configs/trivy.yaml --provider gh --organization Mango2Juice --repository drlocum --api-token ***] args=[c:/Users/burst/Documents/GitHub/locum2/.trunk/configs/trivy.yaml]
+2025-11-20T10:45:04+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:45:04+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 config discover c:/Users/burst/Documents/GitHub/locum2/.trunk/configs/semgrep.yaml --provider gh --organization Mango2Juice --repository drlocum --api-token ***] args=[c:/Users/burst/Documents/GitHub/locum2/.trunk/configs/semgrep.yaml] command=discover
+2025-11-20T10:47:05+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T10:51:46+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=eslint toolConfigPath=.codacy/tools-configs/eslint.config.mjs
+2025-11-20T10:52:57+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=lizard toolConfigPath=.codacy/tools-configs/lizard.yaml
+2025-11-20T10:52:57+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=semgrep toolConfigPath=.codacy/tools-configs/semgrep.yaml
+2025-11-20T10:56:06+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:56:06+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/cli-config.yaml --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/cli-config.yaml]
+2025-11-20T10:56:06+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=semgrep toolConfigPath=.codacy/tools-configs/semgrep.yaml
+2025-11-20T10:56:46+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T10:59:33+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T10:59:33+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/trivy.yaml --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/trivy.yaml]
+2025-11-20T10:59:33+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=semgrep toolConfigPath=.codacy/tools-configs/semgrep.yaml
+2025-11-20T10:59:59+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T11:02:59+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T11:02:59+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/trivy.yaml --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.codacy/tools-configs/trivy.yaml]
+2025-11-20T11:02:59+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=semgrep toolConfigPath=.codacy/tools-configs/semgrep.yaml
+2025-11-20T11:03:30+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T11:03:34+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T11:03:35+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.trunk/configs/trivy.yaml --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.trunk/configs/trivy.yaml] command=analyze
+2025-11-20T11:03:35+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=semgrep toolConfigPath=.codacy/tools-configs/semgrep.yaml
+2025-11-20T11:04:19+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T11:17:35+08:00 [INFO] (codacy-cli-v2/cli-v2.go:27) Starting Codacy CLI version=1.0.0-main.361.sha.f961a76 (f961a76) built at 2025-10-30T14:22:11Z
+2025-11-20T11:17:35+08:00 [INFO] (codacy-cli-v2/cmd/root.go:34) Executing CLI command command=analyze full_command=[/home/surfacepro/.cache/codacy/codacy-cli-v2/1.0.0-main.361.sha.f961a76/codacy-cli-v2 analyze /mnt/c/Users/burst/Documents/GitHub/locum2/.trunk/configs/semgrep.yaml --format sarif] args=[/mnt/c/Users/burst/Documents/GitHub/locum2/.trunk/configs/semgrep.yaml]
+2025-11-20T11:17:36+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=trivy toolConfigPath=.codacy/tools-configs/trivy.yaml
+2025-11-20T11:17:40+08:00 [INFO] (codacy-cli-v2/cmd/analyze.go:341) Config file found for tool tool=semgrep toolConfigPath=.codacy/tools-configs/semgrep.yaml

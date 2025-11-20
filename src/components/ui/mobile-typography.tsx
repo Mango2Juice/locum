@@ -32,7 +32,7 @@ export const MobileHeading: React.FC<MobileTextProps & { level: 1 | 2 | 3 | 4 | 
   level,
   as,
 }) => {
-  const Component = as || (`h${level}` as keyof JSX.IntrinsicElements)
+  const Component = (as || (`h${level}` as keyof React.JSX.IntrinsicElements)) as React.ElementType
 
   const levelClasses = {
     1: 'mobile-text-3xl',

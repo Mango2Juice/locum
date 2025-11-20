@@ -4,10 +4,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 interface PullToRefreshOptions {
-  threshold?: number
+  threshold?: number | undefined
   onRefresh: () => Promise<void> | void
-  enabled?: boolean
-  onThresholdReached?: () => void
+  enabled?: boolean | undefined
+  onThresholdReached?: (() => void) | undefined
 }
 
 type RefreshState = 'idle' | 'pulling' | 'threshold' | 'refreshing' | 'complete'
@@ -16,7 +16,7 @@ interface PullToRefreshReturn {
   state: RefreshState
   pullDistance: number
   progress: number
-  containerRef: React.RefObject<HTMLElement>
+  containerRef: React.RefObject<HTMLElement | null>
 }
 
 /**

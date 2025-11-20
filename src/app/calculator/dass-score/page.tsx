@@ -1,11 +1,14 @@
 // src/app/calculator/dass-score/page.tsx
 'use client'
 
+import { AnimatePresence, motion } from 'framer-motion'
 import { AlertTriangle, Check, RefreshCw } from 'lucide-react'
+import { useMemo, useState } from 'react'
 import { Alert, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
+import { ProgressBar } from '@/components/ui/progress-bar'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useDassScore } from '@/hooks/use-dass-score'
 import { cn } from '@/lib/utils'
@@ -34,43 +37,38 @@ function QuestionRow({
 }) {
   return (
     <div className='flex flex-col rounded-lg border p-4 transition-colors hover:bg-accent/50'>
-      <div className='mb-4'>
+      <div className='mb-3'>
         <Label className='font-medium'>
           {index + 1}. {question.text}
         </Label>
       </div>
+
       <RadioGroup
         value={String(value)}
         onValueChange={(val) => {
           onChange(Number.parseInt(val, 10) as AnswerValue)
         }}
-        className='grid grid-cols-2 sm:grid-cols-4 gap-4'
+        className='grid grid-cols-4 gap-2'
         aria-label={question.text}
       >
-        <div className='flex items-center space-x-2'>
-          <RadioGroupItem value='0' id={`${question.id}-0`} />
-          <Label htmlFor={`${question.id}-0`} className='font-normal'>
-            Did not apply to me at all
-          </Label>
-        </div>
-        <div className='flex items-center space-x-2'>
-          <RadioGroupItem value='1' id={`${question.id}-1`} />
-          <Label htmlFor={`${question.id}-1`} className='font-normal'>
-            Applied to me to some degree
-          </Label>
-        </div>
-        <div className='flex items-center space-x-2'>
-          <RadioGroupItem value='2' id={`${question.id}-2`} />
-          <Label htmlFor={`${question.id}-2`} className='font-normal'>
-            Applied to me a considerable degree
-          </Label>
-        </div>
-        <div className='flex items-center space-x-2'>
-          <RadioGroupItem value='3' id={`${question.id}-3`} />
-          <Label htmlFor={`${question.id}-3`} className='font-normal'>
-            Applied to me very much
-          </Label>
-        </div>
+        {[
+          { v: '0', description: 'Not at all' },
+          { v: '1', description: 'A little' },
+          { v: '2', description: 'Quite a bit' },
+          { v: '3', description: 'Very much' },
+        ].map((opt) => (
+          <div key={opt.v} className='flex flex-col items-start space-y-1'>
+            <div className='flex items-center space-x-2'>
+              <RadioGroupItem value={opt.v} id={`${question.id}-${opt.v}`} />
+              <Label htmlFor={`${question.id}-${opt.v}`} className='font-semibold'>
+                {opt.v}
+              </Label>
+            </div>
+            <span className='text-xs text-muted-foreground leading-tight'>
+              — {opt.description}
+            </span>
+          </div>
+        ))}
       </RadioGroup>
     </div>
   )
@@ -128,6 +126,14 @@ function ResultCard({
  */
 export default function DassScorePage() {
   const { answers, results, showResult, handleAnswerChange, handleSubmit, handleReset, isComplete } = useDassScore()
+  const [page, setPage] = useState(0)
+  const [direction, setDirection] = useState(0)
+
+  const pageSize = 7
+  const totalPages = useMemo(() => Math.ceil(questions.length / pageSize), [])
+  const from = page * pageSize
+  const pageQuestions = questions.slice(from, from + pageSize)
+  const progress = Math.round((Object.values(answers).filter((v) => v > -1).length / questions.length) * 100)
 
   return (
     <div className='w-full max-w-4xl mx-auto pb-24'>
@@ -141,33 +147,96 @@ export default function DassScorePage() {
       <form onSubmit={handleSubmit}>
         <Card>
           <CardHeader>
-            <CardTitle>Questionnaire</CardTitle>
-            <CardDescription>
-              Please read each statement and select the number which indicates how much the statement applied to you
-              over the past week.
-            </CardDescription>
+            <div className='w-full'>
+              <div className='flex items-center justify-between'>
+                <div>
+                  <CardTitle>Questionnaire</CardTitle>
+                  <CardDescription>
+                    Read each statement and choose the option that best describes how much it applied to you in the past
+                    week.
+                  </CardDescription>
+                </div>
+                <div className='w-48'>
+                  <ProgressBar value={progress} />
+                  <p className='text-xs text-right text-muted-foreground mt-1'>{progress}% completed</p>
+                </div>
+              </div>
+              <div className='mt-3 flex items-center justify-between text-sm text-muted-foreground'>
+                <div>
+                  Page {page + 1} of {totalPages}
+                </div>
+                <div>
+                  Questions {from + 1}–{Math.min(from + pageSize, questions.length)}
+                </div>
+              </div>
+            </div>
           </CardHeader>
           <CardContent className='space-y-6'>
-            {questions.map((q, index) => (
-              <QuestionRow
-                key={q.id}
-                question={q}
-                value={answers[q.id] ?? -1}
-                onChange={(value) => {
-                  handleAnswerChange(q.id, value)
+            <AnimatePresence initial={false} custom={direction} mode='wait'>
+              <motion.div
+                key={page}
+                custom={direction}
+                initial='enter'
+                animate='center'
+                exit='exit'
+                transition={{ duration: 0.28 }}
+                variants={{
+                  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
+                  center: { x: 0, opacity: 1 },
+                  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
                 }}
-                index={index}
-              />
-            ))}
+                className='space-y-6'
+              >
+                {pageQuestions.map((q, i) => (
+                  <QuestionRow
+                    key={q.id}
+                    question={q}
+                    value={answers[q.id] ?? -1}
+                    onChange={(value) => {
+                      handleAnswerChange(q.id, value)
+                    }}
+                    index={from + i}
+                  />
+                ))}
+              </motion.div>
+            </AnimatePresence>
 
-            <div className='flex flex-col sm:flex-row gap-2 pt-4'>
-              <Button type='submit' className='w-full' disabled={!isComplete}>
-                Calculate Score
-              </Button>
-              <Button type='button' variant='outline' className='w-full' onClick={handleReset}>
-                <RefreshCw className='w-4 h-4 mr-2' />
-                Reset
-              </Button>
+            <div className='flex flex-col sm:flex-row gap-2 pt-4 items-center'>
+              <div className='flex gap-2 w-full sm:w-auto'>
+                <Button
+                  type='button'
+                  variant='ghost'
+                  onClick={() => {
+                    setDirection(-1)
+                    setPage((p) => Math.max(0, p - 1))
+                  }}
+                  disabled={page === 0}
+                >
+                  Back
+                </Button>
+                {page < totalPages - 1 ? (
+                  <Button
+                    type='button'
+                    onClick={() => {
+                      setDirection(1)
+                      setPage((p) => Math.min(totalPages - 1, p + 1))
+                    }}
+                  >
+                    Next
+                  </Button>
+                ) : (
+                  <Button type='submit' className='w-full' disabled={!isComplete}>
+                    Calculate Score
+                  </Button>
+                )}
+              </div>
+
+              <div className='ml-auto w-full sm:w-40'>
+                <Button type='button' variant='outline' className='w-full' onClick={handleReset}>
+                  <RefreshCw className='w-4 h-4 mr-2' />
+                  Reset
+                </Button>
+              </div>
             </div>
             {!isComplete && (
               <p className='text-sm text-center text-muted-foreground pt-2'>
@@ -181,8 +250,16 @@ export default function DassScorePage() {
       {showResult && results && (
         <Card className='mt-8'>
           <CardHeader>
-            <CardTitle>Results</CardTitle>
-            <CardDescription>The scores below indicate the severity of symptoms for each category.</CardDescription>
+            <div className='flex items-center justify-between w-full'>
+              <div>
+                <CardTitle>Results</CardTitle>
+                <CardDescription>The scores below indicate the severity of symptoms for each category.</CardDescription>
+              </div>
+              <div className='text-right text-sm text-muted-foreground'>
+                <div className='font-medium'>Interpretation</div>
+                <div>Higher scores indicate greater symptom severity.</div>
+              </div>
+            </div>
           </CardHeader>
           <CardContent className='flex flex-col md:flex-row gap-4'>
             <ResultCard title='Depression' {...results.depression} />

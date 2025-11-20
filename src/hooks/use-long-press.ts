@@ -77,14 +77,16 @@ export function useLongPress({
 
         // Trigger haptic feedback if available, with error handling
         try {
-            const nav = globalThis.navigator as (Navigator & { vibrate?: (pattern: number | number[]) => boolean }) | undefined;
-            if (nav?.vibrate) {
-          nav.vibrate(50); // Heavy impact
-            }
+          const nav = globalThis.navigator as
+            | (Navigator & { vibrate?: (pattern: number | number[]) => boolean })
+            | undefined
+          if (nav?.vibrate) {
+            nav.vibrate(50) // Heavy impact
+          }
         } catch (err) {
-            // Log unexpected failures so they can be diagnosed instead of being silently ignored.
-            // eslint-disable-next-line no-console
-            console.error('Long press vibration failed:', err);
+          // Log unexpected failures so they can be diagnosed instead of being silently ignored.
+          // eslint-disable-next-line no-console
+          console.error('Long press vibration failed:', err)
         }
       }, duration)
     },
@@ -117,7 +119,7 @@ export function useLongPress({
       const moveThreshold = 10 // pixels
       const dx = clientX - startPositionRef.current.x
       const dy = clientY - startPositionRef.current.y
-      const distance = Math.hypot(dx, dy);
+      const distance = Math.hypot(dx, dy)
 
       if (distance > moveThreshold) {
         clear()

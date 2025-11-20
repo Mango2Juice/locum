@@ -6,15 +6,37 @@ applyTo: "**/*"
 
 When making edits to the codebase, please adhere to the following guidelines:
 
-- Always prefer using `globalThis` when referring to the global object, as it provides a consistent way to access the global scope across different environments (browser, Node.js, etc.). Avoid using `window`, `self`, or `global` directly.
-- For parsing integers and floating-point numbers, use `Number.parseInt` and `Number.parseFloat` respectively. This practice enhances code clarity by explicitly indicating that these functions are part of the `Number` object, and helps avoid potential issues with shadowed global functions.
-- When defining ARIA roles for progress bars, use the role `progress` instead of `progressbar`. This ensures better compliance with accessibility standards and improves the experience for users relying on assistive technologies.
-- Ensure that all code changes maintain or improve accessibility standards, performance, and code readability.
-- Test all changes thoroughly to confirm that they work as intended across different environments and use cases.
-- Strings should use "replaceAll()" instead of "replace()" with global regex patterns for better readability and performance.
-- Use "for...of" loops instead of "forEach" method calls for better performance and readability, especially when dealing with arrays.
-- Negated conditions should be avoided when an else clause is present, to enhance code clarity and maintainability.
-- React props should be read-only; avoid mutating them directly to prevent unintended side effects.
-- Semantic HTML tags are generally preferred over ARIA roles for accessibility due to their built-in functionality, universal support by browsers and assistive technologies, simplicity, and maintainability.
-- React props should be read-only because it helps to enforce the principle of immutability in React functional components.
-- Ternary operators should not be nested
+This file lists short, practical rules to keep code consistent, accessible, and maintainable.
+
+Globals & parsing
+
+- Prefer `globalThis` for the global object; avoid `window`, `self`, or `global` directly.
+- Use `Number.parseInt(str, 10)` and `Number.parseFloat(str)` for parsing numbers; always pass a radix to `parseInt`.
+
+Accessibility
+
+- Prefer semantic HTML elements over explicit ARIA roles when possible (use native `<button>`, `<progress>`, headings, etc.).
+- For progress controls, prefer the `progress` semantic element or ensure ARIA usage follows platform guidance.
+
+JavaScript / TypeScript conventions
+
+- Use `string.replaceAll()` rather than `string.replace()` with a global regex when replacing all occurrences.
+- Prefer `for...of` over `Array.prototype.forEach()` for readability and better control (e.g., `break` / `continue`).
+- Avoid negated conditions when an `else` branch makes intent clearer.
+- Do not nest ternary operators; use `if`/`else` for complex branching.
+
+React-specific
+
+- Treat props as immutable; never mutate props directly inside a component.
+- Keep client components small; prefer server components where appropriate.
+
+Readability & complexity
+
+- Keep function cognitive complexity low: split large functions into smaller helpers.
+- Avoid deep function nesting; prefer flat, testable helpers.
+
+Testing & verification
+
+- Test changes in relevant environments and run the project's linters/tests before committing.
+
+If you need a rule relaxed for a specific case, add a short inline justification comment and mark it for review in the PR description.

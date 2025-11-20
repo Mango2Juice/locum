@@ -20,7 +20,7 @@ interface UseScrollOptions {
 export function useOptimizedScroll(callback: (scrollY: number) => void, options: UseScrollOptions = {}) {
   const { throttleMs = 100, passive = true } = options
   const lastCallRef = useRef(0)
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | undefined>(undefined)
 
   const handleScroll = useCallback(() => {
     const now = Date.now()
@@ -77,11 +77,11 @@ export function useScrollReveal<T extends HTMLElement>(options: UseScrollRevealO
         for (const entry of entries) {
           if (entry.isIntersecting) {
             if (!triggerOnce || !hasTriggeredRef.current) {
-              setIsVisible(true);
-              hasTriggeredRef.current = true;
+              setIsVisible(true)
+              hasTriggeredRef.current = true
             }
           } else if (!triggerOnce) {
-            setIsVisible(false);
+            setIsVisible(false)
           }
         }
       },
@@ -109,7 +109,7 @@ export function useScrollReveal<T extends HTMLElement>(options: UseScrollRevealO
 export function useScrollDirection(threshold = 10) {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null)
   const lastScrollYRef = useRef(0)
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -158,13 +158,13 @@ export function useLazyLoad<T extends HTMLImageElement>() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            const src = img.dataset.src;
+            const img = entry.target as HTMLImageElement
+            const { src } = img.dataset
 
             if (src) {
-              img.src = src;
-              img.onload = () => setIsLoaded(true);
-              observer.unobserve(img);
+              img.src = src
+              img.onload = () => setIsLoaded(true)
+              observer.unobserve(img)
             }
           }
         }
@@ -192,7 +192,7 @@ export function useLazyLoad<T extends HTMLImageElement>() {
  */
 export function useThrottle<T extends (...args: unknown[]) => void>(callback: T, delay: number) {
   const lastCallRef = useRef(0)
-  const timeoutRef = useRef<NodeJS.Timeout>()
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const throttledCallback = useCallback(
     (...args: Parameters<T>) => {

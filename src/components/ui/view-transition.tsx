@@ -114,14 +114,17 @@ export function ViewTransition({
       }
       case 'fade':
         return `${baseClasses} ${animationState === 'entered' ? 'opacity-100' : 'opacity-0'}`
-      case 'scale':
-        return `${baseClasses} ${
-          animationState === 'entered'
-            ? 'scale-100 opacity-100'
-            : animationState === 'entering'
-              ? 'scale-95 opacity-0'
-              : 'scale-105 opacity-0'
-        }`
+      case 'scale': {
+        let scaleClasses: string
+        if (animationState === 'entered') {
+          scaleClasses = 'scale-100 opacity-100'
+        } else if (animationState === 'entering') {
+          scaleClasses = 'scale-95 opacity-0'
+        } else {
+          scaleClasses = 'scale-105 opacity-0'
+        }
+        return `${baseClasses} ${scaleClasses}`
+      }
       default:
         return baseClasses
     }

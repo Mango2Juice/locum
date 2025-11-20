@@ -5,6 +5,9 @@
       "args": [
         "next-devtools-mcp@latest"
       ]
+    },
+    "trunk": {
+      "httpUrl": "https://mcp.trunk.io/mcp"
     }
   }
 }

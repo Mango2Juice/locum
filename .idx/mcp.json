@@ -6,6 +6,10 @@
         "shadcn@latest",
         "mcp"
       ]
-    }
+    },
+    "trunk": {
+			"url": "https://mcp.trunk.io/mcp",
+			"type": "http"
+		}
   }
 }

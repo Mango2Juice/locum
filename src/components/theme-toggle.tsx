@@ -34,7 +34,7 @@ export function ThemeToggle(): React.ReactElement {
   }
 
   const CurrentIcon = (theme && themeIcons[theme]) || Monitor
-  const uniqueThemes = [...new Set(themes ?? [])]
+  const uniqueThemes = Array.from(new Set(themes ?? []))
 
   if (!mounted) {
     // Render a placeholder button to prevent layout shift during hydration and avoid hydration error.

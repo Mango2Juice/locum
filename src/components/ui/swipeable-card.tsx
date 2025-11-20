@@ -15,12 +15,12 @@ interface SwipeAction {
 
 interface SwipeableCardProps {
   children: ReactNode
-  onFavorite?: () => void
-  onDelete?: () => void
-  onHistory?: () => void
-  onShare?: () => void
-  enabled?: boolean
-  className?: string
+  onFavorite?: (() => void) | undefined
+  onDelete?: (() => void) | undefined
+  onHistory?: (() => void) | undefined
+  onShare?: (() => void) | undefined
+  enabled?: boolean | undefined
+  className?: string | undefined
 }
 
 const actionStyles = {

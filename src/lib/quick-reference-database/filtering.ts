@@ -82,10 +82,10 @@ export function searchMedications(
 export function getFilteredMedications(
   medications: QuickReferenceMedication[],
   options: {
-    categoryId?: string
-    enabledOnly?: boolean
-    searchTerm?: string
-    audience?: 'paediatric' | 'adult'
+    categoryId?: string | undefined
+    enabledOnly?: boolean | undefined
+    searchTerm?: string | undefined
+    audience?: 'paediatric' | 'adult' | undefined
   } = {},
 ): QuickReferenceMedication[] {
   let filtered = medications

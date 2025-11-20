@@ -1,0 +1,11 @@
+severity:
+  - MEDIUM
+  - HIGH
+  - CRITICAL
+
+scan:
+  scanners:
+    - vuln
+    - secret
+  skip-dirs: [".next", "node_modules", "vendor"]
+disable-telemetry: true

@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 
 interface SkeletonLoaderProps {
-  className?: string
+  className?: string | undefined
   variant?: 'text' | 'circular' | 'rectangular'
 }
 
@@ -28,7 +28,7 @@ export function SkeletonLoader({ className, variant = 'rectangular' }: SkeletonL
 
 interface SkeletonGroupProps {
   lines?: number
-  className?: string
+  className?: string | undefined
 }
 
 /**

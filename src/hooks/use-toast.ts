@@ -59,7 +59,9 @@ const useToastStore = create<ToastState>((set, get) => ({
     set((state) => {
       const newTimeouts = new Map(state.timeouts)
 
-      const dismiss = (id: string) => {
+      const idsToDismiss = toastId ? [toastId] : state.toasts.map((t) => t.id)
+
+      for (const id of idsToDismiss) {
         // Clear any pending dismiss timeout
         const existingTimeout = newTimeouts.get(id)
         if (existingTimeout) {
@@ -74,20 +76,9 @@ const useToastStore = create<ToastState>((set, get) => ({
         newTimeouts.set(id, removalTimeout)
       }
 
-      if (toastId) {
-        dismiss(toastId)
-        return {
-          toasts: state.toasts.map((t) => (t.id === toastId ? { ...t, open: false } : t)),
-          timeouts: newTimeouts,
-        }
-      } else {
-        for (const t of state.toasts) {
-          dismiss(t.id)
-        }
-        return {
-          toasts: state.toasts.map((t) => ({ ...t, open: false })),
-          timeouts: newTimeouts,
-        }
+      return {
+        toasts: state.toasts.map((t) => (idsToDismiss.includes(t.id) ? { ...t, open: false } : t)),
+        timeouts: newTimeouts,
       }
     })
   },
@@ -106,7 +97,7 @@ const useToastStore = create<ToastState>((set, get) => ({
           timeouts: newTimeouts,
         }
       } else {
-        for (const timeoutId of newTimeouts.values()) {
+        for (const timeoutId of Array.from(newTimeouts.values())) {
           clearTimeout(timeoutId)
         }
         return {
@@ -118,7 +109,7 @@ const useToastStore = create<ToastState>((set, get) => ({
   },
   cleanupTimeouts: () => {
     const { timeouts } = get()
-    for (const timeoutId of timeouts.values()) {
+    for (const timeoutId of Array.from(timeouts.values())) {
       clearTimeout(timeoutId)
     }
     set({ timeouts: new Map() })

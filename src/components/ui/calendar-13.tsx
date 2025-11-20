@@ -7,16 +7,20 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 export default function Calendar13() {
-  const [dropdown, setDropdown] = React.useState<React.ComponentProps<typeof Calendar>['captionLayout']>('dropdown')
-  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12))
+  const [dropdown, setDropdown] =
+    React.useState<NonNullable<React.ComponentProps<typeof Calendar>['captionLayout']>>('dropdown')
+  const [date, setDate] = React.useState<Date>(new Date(2025, 5, 12))
 
   return (
     <div className='flex flex-col gap-4'>
       <Calendar
         mode='single'
+        required={false}
         defaultMonth={date}
         selected={date}
-        onSelect={setDate}
+        onSelect={(d) => {
+          if (d) setDate(d)
+        }}
         captionLayout={dropdown}
         className='rounded-lg border shadow-sm'
       />
@@ -26,7 +30,9 @@ export default function Calendar13() {
         </Label>
         <Select
           value={dropdown}
-          onValueChange={(value) => setDropdown(value as React.ComponentProps<typeof Calendar>['captionLayout'])}
+          onValueChange={(value) =>
+            setDropdown(value as NonNullable<React.ComponentProps<typeof Calendar>['captionLayout']>)
+          }
         >
           <SelectTrigger id='dropdown' className='bg-background w-full'>
             <SelectValue placeholder='Dropdown' />

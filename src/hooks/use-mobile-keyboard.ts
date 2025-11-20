@@ -61,27 +61,27 @@ export function useMobileKeyboard(options: UseMobileKeyboardOptions = {}) {
   const { adjustViewport = true, onKeyboardToggle } = options
 
   const [keyboardState, setKeyboardState] = useState<MobileKeyboardState>({
-      isVisible: false,
-      height: 0,
-      viewportHeight: globalThis.window === undefined ? 0 : globalThis.window.innerHeight,
-  });
+    isVisible: false,
+    height: 0,
+    viewportHeight: globalThis.window === undefined ? 0 : globalThis.window.innerHeight,
+  })
   // Use direct undefined comparison instead of `typeof`
-  const isClient = globalThis.window !== undefined;
+  const isClient = globalThis.window !== undefined
 
   useEffect(() => {
-    if (!isClient) return;
+    if (!isClient) return
 
-    const viewportHeight = globalThis.window === undefined ? 0 : globalThis.window.innerHeight;
+    const viewportHeight = globalThis.window === undefined ? 0 : globalThis.window.innerHeight
     setKeyboardState((prev) => ({
       ...prev,
       viewportHeight,
-    }));
-  }, [isClient]);
+    }))
+  }, [isClient])
   const initialViewportHeight = useRef<number>(globalThis.window === undefined ? 0 : globalThis.window.innerHeight)
-  const debounceTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>()
+  const debounceTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   const handleViewportChange = useCallback(() => {
-    if (globalThis.window === undefined) return;
+    if (globalThis.window === undefined) return
 
     // Clear any existing timeout to debounce the event
     if (debounceTimeoutRef.current) {
@@ -111,7 +111,7 @@ export function useMobileKeyboard(options: UseMobileKeyboardOptions = {}) {
 
   // Initialize viewport height on client mount
   useEffect(() => {
-    if (globalThis.window === undefined) return;
+    if (globalThis.window === undefined) return
 
     initialViewportHeight.current = window.innerHeight
     setKeyboardState((prev) => ({
@@ -122,11 +122,11 @@ export function useMobileKeyboard(options: UseMobileKeyboardOptions = {}) {
 
   useEffect(() => {
     if (globalThis.window === undefined) {
-      return;
+      return
     }
 
     if (adjustViewport === false) {
-      return;
+      return
     }
 
     const eventTarget = window.visualViewport ?? globalThis.window

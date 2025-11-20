@@ -8,12 +8,10 @@
 			],
 			"type": "stdio"
 		},
-		"cognitionai/deepwiki": {
-			"type": "http",
-			"url": "https://mcp.deepwiki.com/sse",
-			"gallery": "https://api.mcp.github.com",
-			"version": "1.0.0"
-		}
+		"trunk": {
+			"url": "https://mcp.trunk.io/mcp",
+			"type": "http"
+		},
 	},
 	"inputs": []
 }

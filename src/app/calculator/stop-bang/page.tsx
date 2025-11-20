@@ -72,10 +72,10 @@ function ResultCard({
   color,
   description,
 }: Readonly<{
-  score: number;
-  risk: 'Low' | 'Intermediate' | 'High';
-  color: 'text-green-600' | 'text-yellow-600' | 'text-red-600';
-  description: string;
+  score: number
+  risk: 'Low' | 'Intermediate' | 'High'
+  color: 'text-green-600' | 'text-yellow-600' | 'text-red-600'
+  description: string
 }>) {
   let variant: 'destructive' | 'accent' | 'default'
   if (risk === 'High') {

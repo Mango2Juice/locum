@@ -2,6 +2,7 @@
  * Runtime validation and consistency checks for the Quick Reference Database
  */
 
+import type { ZodIssue } from 'zod'
 import type { QuickReferenceMedication, ValidationResult } from '../types'
 import { QuickReferenceMedicationSchema } from './schemas'
 
@@ -16,14 +17,20 @@ export function validateMedication(medication: QuickReferenceMedication): Valida
   const result = QuickReferenceMedicationSchema.safeParse(medication)
 
   if (!result.success) {
-    errors.push(...result.error.errors.map((e) => `${e.path.join('.')}: ${e.message}`))
+    errors.push(...result.error.issues.map((e: ZodIssue) => `${e.path.map(String).join('.')}: ${e.message}`))
   } else {
     // Additional business logic checks if schema is valid, using the validated data
     const validatedData = result.data
     if (validatedData.dosingProfiles) {
-      for (const [index, profile] of validatedData.dosingProfiles.entries()) {
-        if (profile.minAge !== undefined && profile.maxAge !== undefined && profile.minAge >= profile.maxAge) {
-          errors.push(`Dosing profile #${index + 1}: Minimum age must be less than maximum age`)
+      for (let i = 0; i < validatedData.dosingProfiles.length; i++) {
+        const profile = validatedData.dosingProfiles[i]
+        if (
+          profile &&
+          profile.minAge !== undefined &&
+          profile.maxAge !== undefined &&
+          profile.minAge >= profile.maxAge
+        ) {
+          errors.push(`Dosing profile #${i + 1}: Minimum age must be less than maximum age`)
         }
       }
     }

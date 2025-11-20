@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils'
 interface PullToRefreshProps {
   children: ReactNode
   onRefresh: () => Promise<void> | void
-  enabled?: boolean
-  threshold?: number
-  onThresholdReached?: () => void
-  className?: string
+  enabled?: boolean | undefined
+  threshold?: number | undefined
+  onThresholdReached?: (() => void) | undefined
+  className?: string | undefined
 }
 
 /**
