@@ -7,6 +7,7 @@ import azithromycin from './azithromycin'
 import cloxacillin from './cloxacillin'
 import erythromycin from './erythromycin'
 import metronidazole from './metronidazole'
+import cephalexin from './cephalexin'
 
 export const medications: QuickReferenceMedication[] = [
   acyclovir,
@@ -17,4 +18,5 @@ export const medications: QuickReferenceMedication[] = [
   cloxacillin,
   erythromycin,
   metronidazole,
+  cephalexin,
 ]
