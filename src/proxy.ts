@@ -1,12 +1,16 @@
-// src\proxy.ts
+// src/proxy.ts
 import arcjet, { createMiddleware, detectBot, slidingWindow, shield } from "@arcjet/next";
 export const config = {
   // matcher tells Next.js which routes to run the middleware on.
   // This runs the middleware on all routes except for static assets.
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
+const arcjetKey = process.env.ARCJET_KEY;
+if (!arcjetKey) {
+  throw new Error("ARCJET_KEY environment variable is required but was not found. Please set ARCJET_KEY in your environment configuration.");
+}
 const aj = arcjet({
-  key: process.env.ARCJET_KEY!,
+  key: arcjetKey,
   rules: [
     detectBot({
       mode: "LIVE", // LIVE or DRY_RUN

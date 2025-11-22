@@ -40,8 +40,8 @@ The AI is empowered to modify the codebase autonomously based on user requests. 
 - **Core Code Assumption:** The AI will primarily work with React components (`.tsx` or `.jsx`) within the `/app` directory. It will create new routes, layouts, and components as needed.
 - **Package Management:** The AI will use `npm` for package management.
 - **Next.js CLI:** The AI will use the Next.js CLI for common development tasks:
-  - `npm build`: To build the project for production.
-  - `npm lint`: To run biomejs and check for code quality issues.
+  - `npm run build`: To build the project for production.
+  - `npm run lint`: To run biomejs and check for code quality issues.
 
 ## **Next.js Core Concepts (App Router)**
 

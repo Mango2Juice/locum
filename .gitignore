@@ -43,6 +43,7 @@ next-env.d.ts
 
 
 # AI
-.github\instructions\snyk_rules.instructions.md
-/.codacy/
-/.qodo/
+.github/instructions/snyk_rules.instructions.md
+.github/instructions/codacy.instructions.md
+/.codacy
+/.qodo
