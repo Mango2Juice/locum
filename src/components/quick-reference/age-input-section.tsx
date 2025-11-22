@@ -9,7 +9,7 @@ import { MobileFormField } from '@/components/ui/mobile-form'
 import { MobileInput } from '@/components/ui/mobile-input'
 import { useDevice } from '@/hooks/use-device'
 import { useScreenReader } from '@/hooks/use-screen-reader'
-import type { AgeInputUnit } from '@/lib/quick-reference-database'
+import type { AgeInputUnit } from '@/lib/medication-reference'
 import { useCalculatorStore } from '@/lib/stores/calculator-store'
 import { cn } from '@/lib/utils'
 

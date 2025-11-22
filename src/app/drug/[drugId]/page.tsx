@@ -8,8 +8,8 @@ import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import { getFrontmatter } from 'next-mdx-remote-client/utils'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { findMedicationById } from '@/lib/quick-reference-database/filtering'
-import { medications as allDrugData } from '@/lib/quick-reference-database/medications'
+import { findMedicationById } from '@/lib/medication-reference/filtering'
+import { medications as allDrugData } from '@/lib/medication-reference/medication-summary'
 import { Callout } from '@/mdx-components'
 
 interface DrugPageProps {
@@ -27,12 +27,12 @@ type MdxFrontmatter = {
 /**
  * Read and parse the MDX file for a given base drug identifier.
  *
- * @param baseDrugId - The base identifier used to locate `{baseDrugId}.mdx` in the quick-reference medications directory.
+ * @param baseDrugId - The base identifier used to locate `{baseDrugId}.mdx` in the quick-reference medication-summary directory.
  * @returns An object with `content` (the MDX body) and `frontmatter` (the parsed frontmatter data), or `null` if the file does not exist or cannot be read.
  */
 async function getMdxContent(baseDrugId: string) {
   try {
-    const mdxDirectory = path.join(process.cwd(), 'src/lib/quick-reference-database/medications-full/')
+    const mdxDirectory = path.join(process.cwd(), 'src/lib/medication-reference/medication-summary-full/')
     const filePath = path.join(mdxDirectory, `${baseDrugId}.mdx`)
     const source = await fs.readFile(filePath, 'utf-8')
     const { frontmatter, strippedSource } = getFrontmatter<MdxFrontmatter>(source)

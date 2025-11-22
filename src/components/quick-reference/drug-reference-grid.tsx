@@ -10,7 +10,7 @@ import type {
   QuickReferenceCalculation,
   QuickReferenceComplaintCategory,
   QuickReferenceMedication,
-} from '@/lib/quick-reference-database'
+} from '@/lib/medication-reference'
 import { cn } from '@/lib/utils'
 import { AriaLabels } from '@/lib/utils/accessibility/labels'
 import { DrugDosageCard } from './'
@@ -180,7 +180,7 @@ export function DrugReferenceGrid({
       if (remaining > 0) {
         announceStatus(`Loaded 8 more medications. ${remaining} remaining.`)
       } else {
-        announceStatus('All medications loaded.')
+        announceStatus('All medication-summary loaded.')
       }
     }
   }, [isMobile, visibleItems, sortedDrugs, announceStatus])

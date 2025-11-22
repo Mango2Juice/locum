@@ -88,7 +88,7 @@ export class ValidationErrorHandler {
 
     switch (context.operation) {
       case 'LOAD_MEDICATIONS':
-        return 'Failed to load medications. Some medications may not be available.'
+        return 'Failed to load medication-summary. Some medication-summary may not be available.'
       case 'LOAD_CATEGORIES':
         return 'Failed to load complaint categories. Default categories will be used.'
       case 'CALCULATE_DOSE':
@@ -210,7 +210,7 @@ export class ValidationErrorHandler {
   }
 
   /**
-   * Get default medications for fallback
+   * Get default medication-summary for fallback
    */
   private getDefaultMedications(): QuickReferenceMedication[] {
     const defaultDosingProfile: DosingProfile = {

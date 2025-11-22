@@ -5,7 +5,7 @@
 import type { QuickReferenceComplaintCategory, QuickReferenceMedication } from './types'
 
 /**
- * Filter medications by complaint category
+ * Filter medication-summary by complaint category
  * @lintignore
  */
 export function filterByComplaintCategory(
@@ -20,7 +20,7 @@ export function filterByComplaintCategory(
 }
 
 /**
- * Filter medications for pediatric audience
+ * Filter medication-summary for pediatric audience
  */
 export function filterByAudience(
   medications: QuickReferenceMedication[],
@@ -34,7 +34,7 @@ export function filterByAudience(
 }
 
 /**
- * Filter medications by enabled status
+ * Filter medication-summary by enabled status
  * @lintignore
  */
 export function filterByEnabled(
@@ -49,7 +49,7 @@ export function filterByEnabled(
 }
 
 /**
- * Search medications by name or aliases
+ * Search medication-summary by name or aliases
  */
 export function searchMedications(
   medications: QuickReferenceMedication[],
@@ -77,7 +77,7 @@ export function searchMedications(
 }
 
 /**
- * Get filtered medications with multiple criteria
+ * Get filtered medication-summary with multiple criteria
  */
 export function getFilteredMedications(
   medications: QuickReferenceMedication[],
@@ -129,7 +129,7 @@ export function findMedicationById(
 }
 
 /**
- * Sort medications by name
+ * Sort medication-summary by name
  */
 export function sortMedicationsByName(
   medications: QuickReferenceMedication[],

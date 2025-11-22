@@ -2,8 +2,8 @@
 import { Loader2 } from 'lucide-react'
 import { Suspense } from 'react'
 import { QuickDrugReferencePage } from '@/components/quick-reference'
-import { getWeightForAge } from '@/lib/quick-reference-database/calculations'
-import { loadComplaintCategories, loadMedications } from '@/lib/quick-reference-database/data-loader'
+import { getWeightForAge } from '@/lib/medication-reference/calculations'
+import { loadComplaintCategories, loadMedications } from '@/lib/medication-reference/data-loader'
 
 /**
  * Renders a full-screen, centered loading indicator for the quick drug reference.
@@ -38,13 +38,13 @@ interface PageProps {
 /**
  * Server component that renders the quick drug reference page initialized from URL search parameters.
  *
- * The component loads medications and complaint categories on the server and passes them, along with
- * initial UI state, to QuickDrugReferencePage.
+ * The component loads medication-summary and complaint categories on the server and passes them, along with
+ *  the initial UI state, to the QuickDrugReferencePage.
  *
  * @param searchParams - Query parameters from the URL. Recognized keys:
  *   - `weight`: parsed as a float to set the initial weight; if missing or invalid, the average weight for a 6-year-old (72 months) is used.
  *   - `complaint`: used as the initial complaint filter; an empty string is treated as undefined.
- * @returns The page element that renders the quick drug reference with server-loaded medications and categories.
+ * @returns The page element that renders the quick drug reference with server-loaded medication-summary and categories.
  */
 export default async function HomePage({ searchParams }: PageProps) {
   // `searchParams` can be a Promise in the App Router — unwrap it first.

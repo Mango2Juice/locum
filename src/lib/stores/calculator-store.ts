@@ -3,7 +3,7 @@
 
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import type { AgeInputUnit, QuickReferenceCalculation } from '@/lib/quick-reference-database'
+import type { AgeInputUnit, QuickReferenceCalculation } from '@/lib/medication-reference'
 
 interface CalculatorState {
   // Quick Reference State

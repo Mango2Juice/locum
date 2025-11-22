@@ -1,4 +1,4 @@
-// src/lib/medication-reference/medications/antispasmodics/colimix.ts
+// src/lib/medication-reference/medication-summary/antispasmodics/colimix.ts
 import type { QuickReferenceMedication } from '../../types'
 
 /**

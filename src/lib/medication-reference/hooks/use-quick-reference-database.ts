@@ -10,12 +10,12 @@ import { useCalculation } from './use-calculation'
 import { useFilteringAndSorting } from './use-filtering-and-sorting'
 
 /**
- * Composes quick-reference hooks to provide a unified API for medications and complaint categories.
+ * Composes quick-reference hooks to provide a unified API for medication-summary and complaint categories.
  *
- * @param initialMedications - The initial array of quick-reference medications supplied to the hook; returned `medications` reflects this array and may be updated by management operations.
+ * @param initialMedications - The initial array of quick-reference medication-summary supplied to the hook; returned `medication-summary` reflects this array and may be updated by management operations.
  * @param initialCategories - The initial array of quick-reference complaint categories exposed as `categories`.
  * @returns An object containing:
- * - `medications`: the current medications array (may be updated),
+ * - `medication-summary`: the current medication-summary array (may be updated),
  * - `categories`: the provided complaint categories,
  * - `isLoading`: a boolean loading flag,
  * - `error`: any loading or operational error (or `null`),

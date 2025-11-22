@@ -17,9 +17,9 @@ const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
 const CACHE_CLEANUP_PROBABILITY = 0.1 // Run cleanup on 10% of calls
 
 /**
- * Provide a cached dosage-calculation function for a list of medications.
+ * Provide a cached dosage-calculation function for a list of medication-summary.
  *
- * @param medications - Array of medications used to look up medication data by id when calculating doses
+ * @param medications - Array of medication-summary used to look up medication data by id when calculating doses
  * @returns An object with `calculateDose(medicationId, weight, age?)` which returns the calculated `QuickReferenceCalculationResult` for the specified medication, weight, and optional age, or `null` if the medication id is not found. Cached results are returned while fresh; cache entries expire after the configured duration.
  */
 export function useCalculation(medications: QuickReferenceMedication[]) {

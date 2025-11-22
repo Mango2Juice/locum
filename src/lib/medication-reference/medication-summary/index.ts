@@ -9,7 +9,7 @@ import { medications as gastrointestinal } from './gastrointestinal'
 import { medications as respiratory } from './respiratory'
 
 /**
- * Aggregated list of all medications from individual category files.
+ * Aggregated list of all medication-summary from individual category files.
  */
 export const medications: QuickReferenceMedication[] = [
   ...analgesics,

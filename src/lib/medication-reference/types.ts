@@ -1,4 +1,4 @@
-// src/lib/quick-reference-database/types.ts
+// src/lib/medication-reference/types.ts
 /**
  * TypeScript interfaces for the Quick Reference Database
  */

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import MobileSelect from '@/components/ui/mobile-select'
 import { useDevice } from '@/hooks/use-device'
 import { useScreenReader } from '@/hooks/use-screen-reader'
-import type { QuickReferenceComplaintCategory as ComplaintCategory } from '@/lib/quick-reference-database'
+import type { QuickReferenceComplaintCategory as ComplaintCategory } from '@/lib/medication-reference'
 import { cn } from '@/lib/utils'
 
 interface ComplaintFilterBarProps {

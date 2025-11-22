@@ -13,7 +13,7 @@ import type {
   QuickReferenceCalculation,
   QuickReferenceComplaintCategory,
   QuickReferenceMedication,
-} from '@/lib/quick-reference-database'
+} from '@/lib/medication-reference'
 import { cn } from '@/lib/utils'
 import { AriaLabels } from '@/lib/utils/accessibility/labels'
 

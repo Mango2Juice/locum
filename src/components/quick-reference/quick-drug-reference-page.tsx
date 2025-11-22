@@ -18,9 +18,9 @@ import type {
   QuickReferenceCalculation,
   QuickReferenceComplaintCategory,
   QuickReferenceMedication,
-} from '@/lib/quick-reference-database'
-import { useQuickReferenceDatabase } from '@/lib/quick-reference-database'
-import { getWeightForAge } from '@/lib/quick-reference-database/calculations'
+} from '@/lib/medication-reference'
+import { useQuickReferenceDatabase } from '@/lib/medication-reference'
+import { getWeightForAge } from '@/lib/medication-reference/calculations'
 import { useCalculatorStore } from '@/lib/stores/calculator-store'
 import { cn } from '@/lib/utils'
 import { ComplaintFilterBar, DrugReferenceGrid, WeightInputSection } from './'
@@ -124,11 +124,11 @@ function ErrorFallback({ error, onRetry }: Readonly<{ error: Error; onRetry: () 
 /**
  * Render the pediatric quick drug reference UI and keep client-side dosing state in sync.
  *
- * Computes and stores dose calculations for the currently filtered pediatric medications based on the displayed age and either a manually entered or age-derived weight, and provides handlers for navigation and user interactions (filter changes, selection, favorites, delete, history, share, refresh, and swipe navigation).
+ * Computes and stores dose calculations for the currently filtered pediatric medication-summary based on the displayed age and either a manually entered or age-derived weight, and provides handlers for navigation and user interactions (filter changes, selection, favorites, delete, history, share, refresh, and swipe navigation).
  *
  * @param defaultWeight - Optional initial weight to populate the weight input
  * @param initialComplaintFilter - Optional initial complaint/category filter to apply
- * @param medications - Quick-reference medications used for filtering and dose calculations
+ * @param medications - Quick-reference medication-summary used for filtering and dose calculations
  * @param categories - Complaint categories used to build the category filter bar
  * @returns The quick drug reference content as a React element
  */

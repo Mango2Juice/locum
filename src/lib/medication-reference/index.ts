@@ -13,8 +13,8 @@ export { default as categoriesData } from './complaint-categories.json'
 export * from './data-loader'
 export * from './filtering'
 export * from './hooks/index'
-// Re-export medications data
+// Re-export medication-summary data
 /** @lintignore */
-export { medications as medicationsData } from './medications/index'
+export { medications as medicationsData } from '@/lib/medication-reference/medication-summary/index'
 export * from './types'
 export * from './validation'
