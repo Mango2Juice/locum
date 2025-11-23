@@ -18,6 +18,8 @@ import { usePregnancyCalculator } from '@/hooks/use-pregnancy-calculator'
  */
 export default function PregnancyCalculatorPage() {
   const {
+    method,
+    setMethod,
     lmpDate,
     setLmpDate,
     ultrasoundDate,
@@ -26,6 +28,8 @@ export default function PregnancyCalculatorPage() {
     setGaWeeks,
     gaDays,
     setGaDays,
+    eddDate,
+    setEddDate,
     pregnancyInfo,
     handleReset,
   } = usePregnancyCalculator()
@@ -40,6 +44,8 @@ export default function PregnancyCalculatorPage() {
         <Card>
           <CardContent className='space-y-6'>
             <PregnancyInputForm
+              method={method}
+              setMethod={setMethod}
               lmpDate={lmpDate}
               setLmpDate={setLmpDate}
               ultrasoundDate={ultrasoundDate}
@@ -48,6 +54,8 @@ export default function PregnancyCalculatorPage() {
               setGaWeeks={setGaWeeks}
               gaDays={gaDays}
               setGaDays={setGaDays}
+              eddDate={eddDate}
+              setEddDate={setEddDate}
             />
             <Button variant='outline' onClick={handleReset} className='w-full'>
               <RefreshCw className='mr-2 h-4 w-4' />
@@ -63,7 +71,11 @@ export default function PregnancyCalculatorPage() {
             <Card>
               <CardContent className='p-6 text-center text-muted-foreground'>
                 <Info className='mx-auto w-12 h-12 mb-4' />
-                <p>Enter the LMP date to see pregnancy details.</p>
+                <p>
+                  {method === 'reverseUltrasound'
+                    ? 'Enter the known EDD to see pregnancy details.'
+                    : 'Enter the LMP date to see pregnancy details.'}
+                </p>
               </CardContent>
             </Card>
           )}

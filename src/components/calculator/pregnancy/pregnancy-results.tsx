@@ -14,12 +14,10 @@ interface ResultCardProps {
 }
 
 /**
- * Render a small centered Card showing a title, a prominent value, and an optional muted description.
+ * Render a small-centered Card showing a title, a prominent value, and an optional muted description.
  *
- * @param title - The small description text shown in the card header
- * @param value - The prominent value displayed in the card content
- * @param description - Optional supplemental text shown below the value in a muted, small style
  * @returns A Card element containing the rendered title, value, and optional description
+ * @param props
  */
 function ResultCard(props: Readonly<ResultCardProps>) {
   const { title, value, description } = props
@@ -41,9 +39,8 @@ function ResultCard(props: Readonly<ResultCardProps>) {
  *
  * Displays a contextual title and description when `source` is one of `'LMP'`, `'LMP_ADJUSTED'`, or `'Ultrasound'`; renders nothing for other values.
  *
- * @param source - The origin of the EDD. Expected values: `'LMP'`, `'LMP_ADJUSTED'`, or `'Ultrasound'`.
- * @param discrepancyDays - Number of days difference between LMP and ultrasound estimates (used in the alert description when applicable).
  * @returns A React element containing the alert for recognized `source` values, `null` otherwise.
+ * @param props
  */
 function BestEstimateAlert(props: Readonly<{ source: string; discrepancyDays: number }>) {
   const { source, discrepancyDays } = props
@@ -87,6 +84,10 @@ interface PregnancyResultsProps {
  * @returns A React element that displays the estimated due date, a best-estimate alert (when applicable), current gestational age, probable conception date, trimester milestone dates, and a list of screening windows.
  */
 export function PregnancyResults({ pregnancyInfo }: Readonly<PregnancyResultsProps>) {
+  // Calculate LMP from the best estimate EDD for display
+  const calculatedLmp = new Date(pregnancyInfo.bestEstimateEdd)
+  calculatedLmp.setDate(calculatedLmp.getDate() - 280)
+
   return (
     <div className='space-y-4'>
       <Card>
@@ -109,7 +110,15 @@ export function PregnancyResults({ pregnancyInfo }: Readonly<PregnancyResultsPro
             <ResultCard
               title='Probable Conception'
               value={format(pregnancyInfo.conceptionDate, 'MMM d, yyyy')}
-              description='Approx. 2 weeks after LMP'
+                            description='Approx. 2 weeks after LMP'
+            />
+          </div>
+
+          <div className='grid grid-cols-1 gap-3 mt-3'>
+            <ResultCard
+              title='Calculated LMP'
+              value={format(calculatedLmp, 'MMM d, yyyy')}
+              description='EDD − 280 days'
             />
           </div>
         </CardContent>

@@ -46,6 +46,10 @@ export function ResponsiveDatePicker({
     setIsOpen(false)
   }
 
+  // Map fromYear/toYear numeric props to DayPicker's fromMonth/toMonth Date props
+  const fromMonth = typeof fromYear === 'number' ? new Date(fromYear, 0, 1) : undefined
+  const toMonth = typeof toYear === 'number' ? new Date(toYear, 11, 31) : undefined
+
   const triggerButton = (
     <Button
       id={triggerId}
@@ -67,6 +71,15 @@ export function ResponsiveDatePicker({
       disabled={disabled}
       captionLayout='dropdown'
       autoFocus
+      // Ensure we pass both month-range and explicit numeric year bounds so DayPicker
+      // respects the requested range regardless of internal prop handling.
+      {...(fromMonth ? { fromMonth } : {})}
+      {...(toMonth ? { toMonth } : {})}
+      {...(typeof fromYear === 'number' ? { fromYear } : {})}
+      {...(typeof toYear === 'number' ? { toYear } : {})}
+      // Also pass startMonth/endMonth aliases to be explicit about nav bounds
+      {...(fromMonth ? { startMonth: fromMonth } : {})}
+      {...(toMonth ? { endMonth: toMonth } : {})}
     />
   )
 

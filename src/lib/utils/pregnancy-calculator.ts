@@ -10,14 +10,14 @@ interface Milestone {
 }
 
 const pregnancyMilestones: Milestone[] = [
-  { name: 'Blood Draw for Serum Integrated Screening', startWeeks: 10, endWeeks: 13, endDays: 6 },
+  { name: 'Blood Screening', startWeeks: 10, endWeeks: 13, endDays: 6 },
   { name: 'First Fetal Heart Tones by Doppler', startWeeks: 11, endWeeks: 12 },
-  { name: 'Nuchal Translucency (NT) Ultrasound', startWeeks: 11, startDays: 2, endWeeks: 14, endDays: 2 },
-  { name: 'Best time for routine anatomy ultrasound', startWeeks: 18, endWeeks: 20 },
-  { name: '2h OGTT in women not previously diagnosed with diabetes', startWeeks: 24, endWeeks: 28 },
-  { name: 'Anti-D prophylaxis for women who are (RhD) Negative', startWeeks: 28, endWeeks: 28 },
-  { name: 'Antepartum Fetal Surveillance in High Risk Patients', startWeeks: 32, endWeeks: 34 },
-  { name: 'Screening for Vaginal and Rectal GBS colonization', startWeeks: 35, endWeeks: 37 },
+  { name: 'NT scan window', startWeeks: 11, startDays: 2, endWeeks: 14, endDays: 2 },
+  { name: 'Anatomy scan window', startWeeks: 18, endWeeks: 21 },
+  { name: 'Typical anatomy scan', startWeeks: 20, endWeeks: 20 },
+  { name: 'Glucose screen', startWeeks: 24, endWeeks: 28 },
+  { name: 'GBS screen', startWeeks: 35, endWeeks: 37 },
+  { name: 'Tdap vaccination', startWeeks: 27, endWeeks: 36 },
 ]
 
 export interface PregnancyInfo {
@@ -58,6 +58,62 @@ function getRedatingThreshold(gaWeeks: number): number {
       return 21
     default:
       return 21 // ≥28 weeks: generally do not redate
+  }
+}
+
+/**
+ * Calculate pregnancy info from a known EDD (reverse ultrasound method).
+ * LMP = EDD − 280 days
+ * Conception = EDD − 266 days
+ * Gestational age today is calculated from LMP.
+ */
+export function calculatePregnancyFromEdd(edd: Date | null | undefined): PregnancyInfo | null {
+  if (!edd || Number.isNaN(edd.getTime())) return null
+
+  const estimatedLmp = sub(edd, { days: 280 })
+  const today = new Date()
+
+  // Gestational age (in days) from estimated LMP to today
+  let currentGaInDays = differenceInDays(today, estimatedLmp)
+  if (currentGaInDays < 0) currentGaInDays = 0 // Clamp for future LMPs
+
+  const gestationalAgeWeeks = Math.floor(currentGaInDays / 7)
+  const gestationalAgeDays = currentGaInDays % 7
+
+  // Trimester cutoffs per ACOG
+  const firstTrimesterEnd = add(estimatedLmp, { weeks: 13, days: 6 })
+  const secondTrimesterEnd = add(estimatedLmp, { weeks: 27, days: 6 })
+
+  let trimester = 1
+  if (today > secondTrimesterEnd) trimester = 3
+  else if (today > firstTrimesterEnd) trimester = 2
+
+  const milestoneDates = pregnancyMilestones.map((m) => {
+    const startDate = add(estimatedLmp, { weeks: m.startWeeks, days: m.startDays || 0 })
+    const endDate = add(estimatedLmp, { weeks: m.endWeeks, days: m.endDays || 0 })
+    const startStr = format(startDate, 'MMM d')
+    const endStr = format(endDate, 'MMM d, yyyy')
+    const isSameDay = format(startDate, 'yyyy-MM-dd') === format(endDate, 'yyyy-MM-dd')
+    const dateRange = isSameDay ? endStr : `${startStr} - ${endStr}`
+    return { name: m.name, dateRange }
+  })
+
+  // Conception = EDD − 266 days (or LMP + 14 days)
+  const conceptionDate = sub(edd, { days: 266 })
+
+  return {
+    lmpEdd: edd,
+    ultrasoundEdd: edd,
+    bestEstimateEdd: edd,
+    source: 'Ultrasound',
+    gestationalAgeWeeks,
+    gestationalAgeDays,
+    conceptionDate,
+    trimester,
+    firstTrimesterEnd,
+    secondTrimesterEnd,
+    discrepancyDays: 0,
+    milestoneDates,
   }
 }
 

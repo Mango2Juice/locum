@@ -2,7 +2,7 @@
 
 import { add, sub } from 'date-fns'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { calculatePregnancyInfo } from './pregnancy-calculator'
+import { calculatePregnancyFromEdd, calculatePregnancyInfo } from './pregnancy-calculator'
 
 // Mock "today" globally for deterministic tests
 const MOCKED_TODAY = new Date('2025-11-03T00:00:00.000Z')
@@ -70,8 +70,7 @@ describe('calculatePregnancyInfo with mocked date', () => {
   })
 
   it('calculates GA as 0w 0d when LMP is today', () => {
-    const lmp = MOCKED_TODAY
-    const result = calculatePregnancyInfo(lmp)
+    const result = calculatePregnancyInfo(MOCKED_TODAY)
     expect(result?.gestationalAgeWeeks).toBe(0)
     expect(result?.gestationalAgeDays).toBe(0)
   })
@@ -103,7 +102,7 @@ describe('calculatePregnancyInfo with mocked date', () => {
     expect(result).not.toBeNull()
     if (!result) return
 
-    // First milestone: "Blood Draw for Serum Integrated Screening" starts at 10 weeks
+        // First milestone: "Blood Screening" starts at 10 weeks
     const firstMilestone = result.milestoneDates[0]
     const expectedStart = add(lmp, { weeks: 10 })
     expect(firstMilestone?.dateRange).toContain(expectedStart.getDate().toString())
@@ -121,3 +120,99 @@ describe('calculatePregnancyInfo with mocked date', () => {
     expect(result?.gestationalAgeDays).toBe(0)
   })
 })
+
+describe('calculatePregnancyFromEdd (reverse ultrasound method)', () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(MOCKED_TODAY)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
+  it('calculates LMP correctly from a known EDD', () => {
+    // EDD is 2025-10-27, so LMP should be EDD − 280 days = 2025-01-20
+    const edd = new Date('2025-10-27T00:00:00.000Z')
+    const result = calculatePregnancyFromEdd(edd)
+
+    expect(result).not.toBeNull()
+    if (!result) return
+
+    const expectedLmp = sub(edd, { days: 280 })
+    expect(result.bestEstimateEdd.toISOString().split('T')[0]).toBe('2025-10-27')
+    expect(expectedLmp.toISOString().split('T')[0]).toBe('2025-01-20')
+  })
+
+  it('calculates conception date correctly from EDD', () => {
+    // Conception = EDD − 266 days
+    const edd = new Date('2025-10-27T00:00:00.000Z')
+    const result = calculatePregnancyFromEdd(edd)
+
+    expect(result).not.toBeNull()
+    if (!result) return
+
+    const expectedConception = sub(edd, { days: 266 })
+    expect(result.conceptionDate.toISOString().split('T')[0]).toBe(expectedConception.toISOString().split('T')[0])
+  })
+
+  it('calculates gestational age correctly from EDD', () => {
+    // If EDD is 2025-10-27 and today is 2025-11-03 (mocked)
+    // LMP would be 2025-01-20
+    // GA = days from LMP to today = 287 days = 41w 0d
+    const edd = new Date('2025-10-27T00:00:00.000Z')
+    const result = calculatePregnancyFromEdd(edd)
+
+    expect(result).not.toBeNull()
+    if (!result) return
+
+    expect(result.gestationalAgeWeeks).toBe(41)
+    expect(result.gestationalAgeDays).toBe(0)
+  })
+
+  it('sets source as Ultrasound for reverse calculation', () => {
+    const edd = new Date('2025-10-27T00:00:00.000Z')
+    const result = calculatePregnancyFromEdd(edd)
+
+    expect(result).not.toBeNull()
+    if (!result) return
+
+    expect(result.source).toBe('Ultrasound')
+    expect(result.discrepancyDays).toBe(0)
+  })
+
+  it('calculates trimester correctly from EDD', () => {
+    // First trimester: GA < 14 weeks
+    const eddFirst = add(MOCKED_TODAY, { weeks: 30 }) // EDD is 30 weeks away
+    const resultFirst = calculatePregnancyFromEdd(eddFirst)
+    expect(resultFirst?.trimester).toBe(1)
+
+    // Second trimester: GA 14-28 weeks
+    const eddSecond = add(MOCKED_TODAY, { weeks: 18 }) // EDD is 18 weeks away (GA ~22w)
+    const resultSecond = calculatePregnancyFromEdd(eddSecond)
+    expect(resultSecond?.trimester).toBe(2)
+
+    // Third trimester: GA > 28 weeks
+    const eddThird = add(MOCKED_TODAY, { weeks: 8 }) // EDD is 8 weeks away (GA ~32w)
+    const resultThird = calculatePregnancyFromEdd(eddThird)
+    expect(resultThird?.trimester).toBe(3)
+  })
+
+  it('returns null if EDD is not a valid date', () => {
+    expect(calculatePregnancyFromEdd(null)).toBeNull()
+    expect(calculatePregnancyFromEdd(undefined)).toBeNull()
+  })
+
+  it('handles past EDD correctly', () => {
+    // EDD in the past (already delivered)
+    const edd = sub(MOCKED_TODAY, { weeks: 2 })
+    const result = calculatePregnancyFromEdd(edd)
+
+    expect(result).not.toBeNull()
+    if (!result) return
+
+    // GA should be > 40 weeks since EDD has passed
+    expect(result.gestationalAgeWeeks).toBeGreaterThan(40)
+  })
+})
+
