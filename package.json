@@ -67,7 +67,7 @@
     "autoprefixer": "^10.4.19",
     "globals": "^16.2.0",
     "jsdom": "^27.1.0",
-    "knip": "^5.70.0",
+    "knip": "^5.70.1",
     "postcss": "^8.4.38",
     "shadcn": "^3.5.0",
     "tailwindcss": "^4.1.16",
