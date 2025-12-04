@@ -62,7 +62,7 @@
     "@types/node": "^24.10.0",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "@vitest/browser": "^4.0.10",
+    "@vitest/browser": "^4.0.13",
     "@vitest/coverage-v8": "^4.0.10",
     "autoprefixer": "^10.4.19",
     "globals": "^16.2.0",
