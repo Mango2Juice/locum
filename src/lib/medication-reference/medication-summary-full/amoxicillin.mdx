@@ -1,86 +1,67 @@
 ---
-title: Amoxicillin
-description: Detailed clinical information for Amoxicillin, including dosing, indications, contraindications, and potential side effects.
-aliases: ["Amoxil", "Amoxycillin"]
+title: "Amoxicillin"
+description: "A broad-spectrum penicillin antibiotic used for various bacterial infections. This guide provides detailed information on its uses, dosing, and safety considerations."
+aliases: ["Amoxil", "Moxatag"]
 ---
 
-import { Callout } from '@/mdx-components'
-
-## Overview
-
-Amoxicillin is a penicillin-type antibiotic used to treat a wide variety of bacterial infections. It works by stopping the growth of bacteria.
-
-<Callout type="warning">
-  **Allergy Alert:** Do not use if the patient has a known allergy to penicillin or other beta-lactam antibiotics.
-</Callout>
-
----
+import { Callout, Alert, AlertTitle, AlertDescription, TriangleAlert } from '@/components/ui';
 
 ## Indications
 
-- **Otitis Media (Ear Infection)**: A common choice for middle ear infections.
-- **Sinusitis**: Effective for bacterial sinus infections.
-- **Streptococcal Pharyngitis (Strep Throat)**: A primary treatment option.
-- **Pneumonia**: Community-acquired pneumonia.
-- **Skin and Soft Tissue Infections**: Such as cellulitis.
-- **Urinary Tract Infections**: In certain cases.
+Amoxicillin is primarily used for the treatment of infections caused by susceptible strains of designated microorganisms in the conditions listed below:
 
----
-
-## Dosing
-
-### Paediatric Dosing (Amoxicillin component)
-
-- **Standard Dose**: 25-50 mg/kg/day divided every 8 to 12 hours.
-- **High Dose (for resistant infections like otitis media)**: 80-90 mg/kg/day divided every 12 hours.
-- **Maximum Dose**: Should not exceed the standard adult dose.
+-   **Ear, Nose, and Throat Infections**: Such as otitis media, pharyngitis, and sinusitis.
+-   **Genitourinary Tract Infections**: Uncomplicated urinary tract infections.
+-   **Skin and Skin Structure Infections**: Caused by streptococci, staphylococci (non-penicillinase-producing), and E. coli.
+-   **Lower Respiratory Tract Infections**: Including pneumonia caused by *Streptococcus pneumoniae*, *Haemophilus influenzae*, and *Staphylococcus* species.
+-   **Helicobacter pylori Eradication**: As part of a multi-drug regimen to reduce the risk of duodenal ulcer recurrence.
 
 <Callout type="info">
-  The quick reference calculator on this app uses a standard dose of 25 mg/kg/day divided twice daily for simplicity. Always adjust based on clinical indication and severity.
+    It is important to culture and identify the causative organisms and determine their susceptibility to amoxicillin.
 </Callout>
 
-### Adult Dosing
+## Dosing in Paediatrics
 
-- **Standard Dose**: 250-500 mg every 8 hours, or 500-875 mg every 12 hours.
+Dosing for amoxicillin in children is primarily based on weight and the severity of the infection.
 
----
+### General Dosing
 
-## Contraindications
+-   **Standard Dose**: 25-50 mg/kg/day in divided doses every 8 to 12 hours.
+-   **High Dose (for resistant organisms)**: 80-90 mg/kg/day in divided doses every 8 to 12 hours.
 
-- **Penicillin Allergy**: History of anaphylaxis or severe skin reaction to any penicillin.
-- **Mononucleosis**: Increased risk of developing a rash.
+### Specific Indications
 
----
+-   **Acute Otitis Media**: For patients with moderate to severe symptoms, high-dose amoxicillin (80-90 mg/kg/day) is recommended.
+-   **Community-Acquired Pneumonia**: Dosing varies by age and severity, often starting with high-dose therapy.
+
+<Callout type="warning">
+    <TriangleAlert className="inline-block w-4 h-4 mr-2" />
+    **Renal Impairment**: Dosage adjustment is required in patients with severe renal impairment (GFR < 30 mL/min). Consult specific guidelines for dosing adjustments.
+</Callout>
 
 ## Adverse Effects
 
-<Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Common</TableHead>
-      <TableHead>Less Common</TableHead>
-      <TableHead>Severe</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Diarrhoea, Nausea, Vomiting</TableCell>
-      <TableCell>Headache, Skin rash</TableCell>
-      <TableCell>Anaphylaxis, Severe skin reactions (SJS/TEN), *C. difficile* colitis</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+Common adverse effects associated with amoxicillin include:
 
----
+-   **Gastrointestinal**: Diarrhea, nausea, and vomiting.
+-   **Hypersensitivity**: Rash (including a non-allergic amoxicillin rash), urticaria.
+-   **Superinfection**: Development of a secondary infection, such as candidiasis.
 
-## Pregnancy & Lactation
+<Alert variant="destructive">
+    <AlertTitle>Anaphylaxis Warning</AlertTitle>
+    <AlertDescription>
+        Serious and occasionally fatal hypersensitivity (anaphylactic) reactions have been reported in patients on penicillin therapy. Before initiating therapy with amoxicillin, careful inquiry should be made concerning previous hypersensitivity reactions to penicillins, cephalosporins, or other allergens.
+    </AlertDescription>
+</Alert>
 
-- **Pregnancy**: Generally considered safe for use during pregnancy (Category B).
-- **Lactation**: Excreted in breast milk in small amounts; compatible with breastfeeding, but monitor infant for rash or diarrhoea.
+## Drug Interactions
 
----
+-   **Probenecid**: Decreases the renal tubular secretion of amoxicillin, increasing its blood levels.
+-   **Allopurinol**: Concurrent use may increase the incidence of rashes.
+-   **Anticoagulants**: May prolong the prothrombin time.
+-   **Oral Contraceptives**: May reduce the efficacy of oral contraceptives.
 
-## Important Notes
+## Pregnancy and Lactation
 
-- **Administration**: May be taken with or without food. Taking with food may reduce gastrointestinal side effects.
-- **Complete the Course**: Instruct patients to complete the full course of antibiotics, even if they feel better, to prevent the development of resistant bacteria.
+-   **Pregnancy Category B**: Animal reproduction studies have failed to demonstrate a risk to the fetus, but there are no adequate and well-controlled studies in pregnant women. Use only if clearly needed.
+-   **Lactation**: Amoxicillin is excreted in human milk. Caution should be exercised when amoxicillin is administered to a nursing woman.
